@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+	
+  <PropertyGroup>
+    <PackageId>NOW.FeatureFlagExtensions.FeatureManagement</PackageId>
+    <Version>1.0.0-alpha</Version>
+    <Authors>WizX20</Authors>
+    <Company>Nerds On Waves</Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.FeatureManagement" Version="2.4.0" />
+  </ItemGroup>
+	
+  <Target Name="CopyToPackagesFolder" AfterTargets="Build" Condition="'$(Configuration)'=='Release'">
+    <ItemGroup>
+      <PackagesToCopy Include="bin\$(Configuration)\*.nupkg" />
+    </ItemGroup>
+    <Copy SourceFiles="@(PackagesToCopy)" DestinationFolder="..\..\lib\local-packages" />
+  </Target>
+
+</Project>
