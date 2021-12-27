@@ -40,11 +40,7 @@ namespace NOW.FeatureFlagExtensions.FeatureManagement.Swagger.OperationFilters
             }
 
             // Get all feature switches defined in config.
-            var features = _featureDefinitionProvider.GetAllFeatureDefinitionsAsync()
-                .ToListAsync()
-                .AsTask()
-                .Result;
-
+            var features = Task.Run(() => GetAllFeatureDefinitions()).GetAwaiter().GetResult();
             if (features == null || features.Count < 1)
             {
                 return;
@@ -91,6 +87,18 @@ namespace NOW.FeatureFlagExtensions.FeatureManagement.Swagger.OperationFilters
                     }
                 });
             }
+        }
+
+        private async Task<List<FeatureDefinition>> GetAllFeatureDefinitions()
+        {
+            var features = new List<FeatureDefinition>();
+
+            await foreach (var feature in _featureDefinitionProvider.GetAllFeatureDefinitionsAsync())
+            {
+                features.Add(feature);
+            }
+
+            return features;
         }
     }
 }
