@@ -35,7 +35,7 @@
     </PackageReference>
   </ItemGroup>
     
-  <Target Name="CopyToPackagesFolder" AfterTargets="Build" Condition="'$(Configuration)'=='Release'">
+  <Target Name="CopyToPackagesFolder" AfterTargets="CoreBuild" Condition="'$(Configuration)'=='Release'">
     <ItemGroup>
       <PackagesToCopy Include="bin\$(Configuration)\*.nupkg" />
     </ItemGroup>
