@@ -1,3 +1,4 @@
+using Ardalis.ListStartupServices;
 using FeatureTestApplication;
 using FeatureTestApplication.Configurations;
 using FeatureTestApplication.Extensions.ServiceCollection;
@@ -26,9 +27,13 @@ var appSettings = builder.Services.RegisterAppSettingsConfiguration(configuratio
 builder.Services.AddControllers();
 builder.Services.AddDefaultMvcOptions();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.Configure<ServiceConfig>(config =>
+{
+    config.Services = new List<ServiceDescriptor>(builder.Services);
+    config.Path = "/allservices";
+});
 
 // Configure output caching and serializer behavior.
-
 
 // Add response caching.
 var responseCachingOptions = appSettings.FeatureTestApplication?.ResponseCaching;
@@ -95,6 +100,8 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseShowAllServicesMiddleware();
+    app.UseDeveloperExceptionPage();
 }
 
 app.UseHttpsRedirection();
