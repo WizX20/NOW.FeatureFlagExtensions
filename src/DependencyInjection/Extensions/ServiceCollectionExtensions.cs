@@ -1,8 +1,5 @@
-﻿using NOW.FeatureFlagExtensions.DependencyInjection.Helpers;
+﻿using Microsoft.Extensions.DependencyInjection;
 using NOW.FeatureFlagExtensions.DependencyInjection.Models;
-using Microsoft.Extensions.DependencyInjection;
-using System.Diagnostics.CodeAnalysis;
-using System.Reflection;
 using MicrosoftDependencyInjection = Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions;
 
 namespace NOW.FeatureFlagExtensions.DependencyInjection.Extensions
@@ -43,43 +40,6 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Extensions
 
             // Try and find the registered implementation by feature, when the interface is requested.
             MicrosoftDependencyInjection.AddScoped(services, provider => GetImplementation<TService, TImplementation>(implementations, provider));
-
-            return services;
-        }
-
-        public static IServiceCollection AddSingleton<TService, TImplementation>(
-            this IServiceCollection services,
-            params ImplementationFeature<TService>[] implementations)
-            where TService : class
-            where TImplementation : class, TService
-        {
-            Guard(services, implementations);
-
-            //// Register default implementation.
-            MicrosoftDependencyInjection.AddSingleton<TImplementation>(services);
-
-            //// Register feature implementations.
-            //var serviceType = typeof(TService);
-            //foreach (var implementation in implementations)
-            //{
-            //    MicrosoftDependencyInjection.AddSingleton(services, implementation.ImplementationType);
-            //}
-
-
-            // START TEST
-            var instance = CustomActivator.CreateInstance<TService>(implementations);
-            MicrosoftDependencyInjection.AddSingleton(services, provider => (TImplementation)instance);
-
-            //var dithet = ((ImpromptuInterface.IActLikeProxy)instance).Original;
-            //var waarde = dithet.Instances;
-
-            //var dithetook = ((ImpromptuInterface.IActLikeProxy)instance).Original.Items["Instances"];
-
-            // END TEST
-
-
-            // Try and find the registered implementation by feature, when the interface is requested.
-            //MicrosoftDependencyInjection.AddSingleton(services, provider => GetImplementation<TService, TImplementation>(implementations, provider));
 
             return services;
         }

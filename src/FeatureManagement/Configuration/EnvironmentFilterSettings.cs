@@ -2,6 +2,6 @@
 {
     public class EnvironmentFilterSettings
     {
-        public string[] Environments { get; set; }
+        public string[]? Environments { get; set; }
     }
 }

@@ -31,7 +31,7 @@ namespace NOW.FeatureFlagExtensions.FeatureManagement.Filters
     [FilterAlias(AggregateFeatureFilter.FilterAlias)]
     public class AggregateFeatureFilter : IFeatureFilter, IApiFeatureFilter
     {
-        public const string FilterAlias = "Combined";
+        public const string FilterAlias = "Aggregate";
 
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IWebHostEnvironment _environment;

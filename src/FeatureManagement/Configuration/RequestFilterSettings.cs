@@ -2,6 +2,6 @@
 {
     public class RequestFilterSettings
     {
-        public string[] RequiredHeaders { get; set; }
+        public string[]? RequiredHeaders { get; set; }
     }
 }

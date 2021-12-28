@@ -28,7 +28,7 @@ namespace FeatureTestApplication.Controllers
             _testConfigurations = testConfigurations;
         }
 
-        [HttpGet]
+        [HttpGet, ResponseCache(CacheProfileName = Constants.ResponseCache.DefaultCacheProfile)]
         public IActionResult Get()
         {
             var names = new List<string>();
@@ -46,13 +46,13 @@ namespace FeatureTestApplication.Controllers
             return Ok(names);
         }
 
-        [HttpGet("service")]
+        [HttpGet("service"), ResponseCache(CacheProfileName = Constants.ResponseCache.DefaultCacheProfile)]
         public IActionResult GetService()
         {
             return Ok(_testService.Name);
         }
 
-        [HttpGet("config")]
+        [HttpGet("config"), ResponseCache(CacheProfileName = Constants.ResponseCache.DefaultCacheProfile)]
         public IActionResult GetConfiguration()
         {
             return Ok(_testConfiguration.Name);

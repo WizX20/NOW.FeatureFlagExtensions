@@ -2,6 +2,6 @@
 {
     public class ClaimsFilterSettings
     {
-        public string[] RequiredClaims { get; set; }
+        public string[]? RequiredClaims { get; set; }
     }
 }
