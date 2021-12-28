@@ -10,6 +10,7 @@ using FeatureTestApplication.Swagger.OperationFilters;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.FeatureManagement;
 using NOW.FeatureFlagExtensions.ApiVersioning.Extensions;
+using NOW.FeatureFlagExtensions.ApiVersioning.Middleware;
 using NOW.FeatureFlagExtensions.ApiVersioning.Swagger.Extensions;
 using NOW.FeatureFlagExtensions.DependencyInjection.Extensions;
 using NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.Extensions;
@@ -64,7 +65,7 @@ if (apiVersioningOptions != null)
         options.SetDefaultApiVersioningOptions(defaultApiVersion);
         options.Conventions.Controller<TestController>().HasApiVersion(defaultApiVersion);
     });
-    
+
     builder.Services.AddVersionedApiExplorer(options =>
     {
         // Add the versioned api explorer, which also adds IApiVersionDescriptionProvider service
@@ -89,7 +90,6 @@ builder.Services.AddSwaggerGen(options =>
         options.SetDefaultApiVersioningOptions();
     }
 
-    //options.OperationFilter<AcceptLanguageHeaderParameter>(); // Add a header operation filter which sets the active culture.
     options.OperationFilter<FeatureFilterHeaderParameter>(); // Add a header operation filter which sets feature switches.
     options.OperationFilter<FileResultContentTypeOperationFilter>();
     options.OperationFilter<ValidateRequiredParameters>();
@@ -119,14 +119,12 @@ builder.Services.AddHsts(options =>
 });
 
 builder.Services.AddDefaultCorsPolicy(appSettings);
-//builder.Services.RegisterDefaultLocalization(appSettings);
 
 /*
-    Start of application start-up configuration.
+    Start of the HTTP request pipeline configuration.
 */
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     if (apiVersioningOptions != null)
@@ -140,12 +138,17 @@ if (app.Environment.IsDevelopment())
         app.UseSwagger();
         app.UseSwaggerUI();
     }
-    
+
     app.UseShowAllServicesMiddleware();
     app.UseDeveloperExceptionPage();
 }
 
+// Configure middleware.
+app.UseMiddleware<ApiVersionMiddleware>();
+
+// Configure routing.
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+
 app.Run();
