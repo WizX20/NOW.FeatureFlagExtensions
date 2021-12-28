@@ -21,6 +21,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NOW.FeatureFlagExtensions.F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NOW.FeatureFlagExtensions.FeatureManagement.Swagger", "src\FeatureManagement.Swagger\NOW.FeatureFlagExtensions.FeatureManagement.Swagger.csproj", "{E7D50CE4-3675-4976-BF48-1CA87AAA2EDE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NOW.FeatureFlagExtensions.ApiVersioning", "src\ApiVersioning\NOW.FeatureFlagExtensions.ApiVersioning.csproj", "{A1F8C06A-D429-4BED-B627-96E2BA7745CB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NOW.FeatureFlagExtensions.ApiVersioning.Swagger", "src\ApiVersioning.Swagger\NOW.FeatureFlagExtensions.ApiVersioning.Swagger.csproj", "{B4A923F2-F748-4296-A2A1-5C8EB0FB6F88}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +51,14 @@ Global
 		{E7D50CE4-3675-4976-BF48-1CA87AAA2EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7D50CE4-3675-4976-BF48-1CA87AAA2EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7D50CE4-3675-4976-BF48-1CA87AAA2EDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1F8C06A-D429-4BED-B627-96E2BA7745CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1F8C06A-D429-4BED-B627-96E2BA7745CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1F8C06A-D429-4BED-B627-96E2BA7745CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1F8C06A-D429-4BED-B627-96E2BA7745CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4A923F2-F748-4296-A2A1-5C8EB0FB6F88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4A923F2-F748-4296-A2A1-5C8EB0FB6F88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4A923F2-F748-4296-A2A1-5C8EB0FB6F88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4A923F2-F748-4296-A2A1-5C8EB0FB6F88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

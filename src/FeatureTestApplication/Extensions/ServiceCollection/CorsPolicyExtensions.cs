@@ -44,6 +44,12 @@ namespace NOW.FeatureTestApplication.Extensions.ServiceCollection
                 throw new ArgumentNullException(nameof(appSettings));
             }
 
+            var allowedOrigins = appSettings.FeatureTestApplication?.CorsPolicy?.AllowedOrigins;
+            if (string.IsNullOrEmpty(allowedOrigins))
+            {
+                throw new ArgumentException($"Missing '{nameof(allowedOrigins)}' configuration; cannot be null or empty.", nameof(allowedOrigins));
+            }
+
             // Configure CORS policy, for more information see:
             // - https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-3.1
             // - https://docs.microsoft.com/en-us/aspnet/core/signalr/javascript-client?view=aspnetcore-3.1#cross-origin-connections
@@ -52,7 +58,7 @@ namespace NOW.FeatureTestApplication.Extensions.ServiceCollection
                 options.AddPolicy(policyName, builder =>
                     builder
                         .AllowCredentials()
-                        .SetAllowedOrigins(appSettings.FeatureTestApplication.CorsPolicy.AllowedOrigins)
+                        .SetAllowedOrigins(allowedOrigins)
                         .AllowAnyMethod()
                         .AllowAnyHeader()
                         .AllowCredentials());

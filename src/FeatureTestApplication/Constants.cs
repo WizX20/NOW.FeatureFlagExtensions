@@ -1,7 +1,17 @@
-﻿namespace FeatureTestApplication
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace FeatureTestApplication
 {
     public static class Constants
     {
+        public static class ApiVersioning
+        {
+            /// <summary>
+            /// Fallback for the default Api version.
+            /// </summary>
+            public static ApiVersion DefaultApiVersion = new(1, 0);
+        }
+
         public static class CorsPolicies
         {
             /// <summary>

@@ -14,6 +14,7 @@
 
   <ItemGroup>
 	<PackageReference Include="Ardalis.ListStartupServices" Version="1.1.3" />
+	<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
 	<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
 	<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
 	<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.2.3" />
@@ -28,6 +29,8 @@
   </ItemGroup>
 
   <ItemGroup>
+	<ProjectReference Include="..\ApiVersioning.Swagger\NOW.FeatureFlagExtensions.ApiVersioning.Swagger.csproj" />
+	<ProjectReference Include="..\ApiVersioning\NOW.FeatureFlagExtensions.ApiVersioning.csproj" />
 	<ProjectReference Include="..\DependencyInjection.FeatureManagement\NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.csproj" />
 	<ProjectReference Include="..\DependencyInjection\NOW.FeatureFlagExtensions.DependencyInjection.csproj" />
 	<ProjectReference Include="..\FeatureManagement.Swagger\NOW.FeatureFlagExtensions.FeatureManagement.Swagger.csproj" />
