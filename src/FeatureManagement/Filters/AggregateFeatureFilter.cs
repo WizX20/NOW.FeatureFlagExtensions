@@ -8,7 +8,7 @@ using NOW.FeatureFlagExtensions.FeatureManagement.Extensions;
 namespace NOW.FeatureFlagExtensions.FeatureManagement.Filters
 {
     /// <summary>
-    /// Can be used to only enable specific features for all available filters combined (all must be true).
+    /// Can be used to only enable specific features for all available filters aggregated (all must be true).
     /// https://github.com/microsoft/FeatureManagement-Dotnet#controllers-and-actions
     /// </summary>
     /// <example>
@@ -17,7 +17,7 @@ namespace NOW.FeatureFlagExtensions.FeatureManagement.Filters
     ///    "BetaFeature": {
     ///      "EnabledFor": [
     ///        {
-    ///          "Name": "Combined",
+    ///          "Name": "Aggregate",
     ///          "Parameters": {
     ///            "Environments": [ "Local", "Development", "Staging", "Production" ],
     ///            "RequiredClaims": [ "Internal" ],
@@ -59,7 +59,7 @@ namespace NOW.FeatureFlagExtensions.FeatureManagement.Filters
 
         public async Task<bool> EvaluateAsync(FeatureFilterEvaluationContext context)
         {
-            // Get the CombinedFilterSettings from configuration.
+            // Get the AggregateFilterSettings from configuration.
             var settings = context.Parameters.Get<AggregateFilterSettings>();
 
             if (settings == null)
@@ -68,22 +68,31 @@ namespace NOW.FeatureFlagExtensions.FeatureManagement.Filters
             }
 
             // Check all available filters.
-            var isEnabled = await _environment.EvaluateEnvironmentAsync(settings.Environments);
-            if (!isEnabled)
+            if (settings.Environments != null)
             {
-                return false;
+                var isEnabled = await _environment.EvaluateEnvironmentAsync(settings.Environments);
+                if (!isEnabled)
+                {
+                    return false;
+                }
             }
 
-            isEnabled = await _httpContextAccessor.EvaluateClaimsAsync(settings.RequiredClaims);
-            if (!isEnabled)
+            if (settings.RequiredClaims != null)
             {
-                return false;
+                var isEnabled = await _httpContextAccessor.EvaluateClaimsAsync(settings.RequiredClaims);
+                if (!isEnabled)
+                {
+                    return false;
+                }
             }
 
-            isEnabled = await _httpContextAccessor.EvaluateHeadersAsync(settings.RequiredHeaders);
-            if (!isEnabled)
+            if (settings.RequiredHeaders != null)
             {
-                return false;
+                var isEnabled = await _httpContextAccessor.EvaluateHeadersAsync(settings.RequiredHeaders);
+                if (!isEnabled)
+                {
+                    return false;
+                }
             }
 
             return true;
