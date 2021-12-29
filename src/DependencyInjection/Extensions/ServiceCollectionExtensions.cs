@@ -101,12 +101,16 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Extensions
                 var featureIsEnabled = featureManager.IsEnabled(implementation.Feature);
                 if (featureIsEnabled)
                 {
+#pragma warning disable CS8603 // Possible null reference return.
                     return provider.GetService(implementation.ImplementationType) as TService;
+#pragma warning restore CS8603 // Possible null reference return.
                 }
             }
 
             // Default implementation.
+#pragma warning disable CS8603 // Possible null reference return.
             return provider.GetService<TImplementation>();
+#pragma warning restore CS8603 // Possible null reference return.
         }
     }
 }
