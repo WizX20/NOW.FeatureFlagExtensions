@@ -36,22 +36,6 @@ namespace FeatureTestApplication.Extensions.ServiceCollection
                         options.Filters.Add<OperationCancelledExceptionFilter>();
                     }
                 );
-                //.AddJsonOptions(
-                //    options =>
-                //    {
-                //        options.JsonSerializerOptions.WriteIndented = true;
-                //        options.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy?.CamelCase;
-                //    });
-
-                //.AddNewtonsoftJson(options =>
-                //{
-                //    options.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
-                //    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-                //    options.SerializerSettings.ContractResolver = new CamelCaseNullToStringPropertyNamesContractResolver();
-
-                //    var converter = new StringEnumConverter(namingStrategy: new CamelCaseNamingStrategy());
-                //    options.SerializerSettings.Converters.Add(converter);
-                //});
         }
     }
 }
