@@ -4,7 +4,11 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageOutputPath>..\..\lib\local-packages</PackageOutputPath>
   </PropertyGroup>
     
   <PropertyGroup>
@@ -34,12 +38,5 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-    
-  <Target Name="CopyToPackagesFolder" AfterTargets="CoreBuild" Condition="'$(Configuration)'=='Release'">
-    <ItemGroup>
-      <PackagesToCopy Include="bin\$(Configuration)\*.nupkg" />
-    </ItemGroup>
-    <Copy SourceFiles="@(PackagesToCopy)" DestinationFolder="..\..\lib\local-packages" />
-  </Target>
 
 </Project>

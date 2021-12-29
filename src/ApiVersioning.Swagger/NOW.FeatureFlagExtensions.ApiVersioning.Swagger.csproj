@@ -1,10 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageOutputPath>..\..\lib\local-packages</PackageOutputPath>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -25,6 +29,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
+    <PackageReference Include="NOW.FeatureFlagExtensions.ApiVersioning" Version="1.0.0-alpha" />
     <PackageReference Include="Roslynator.Analyzers" Version="3.3.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -36,12 +41,5 @@
   <ItemGroup>
     <ProjectReference Include="..\ApiVersioning\NOW.FeatureFlagExtensions.ApiVersioning.csproj" />
   </ItemGroup>
-
-  <Target Name="CopyToPackagesFolder" AfterTargets="CoreBuild" Condition="'$(Configuration)'=='Release'">
-    <ItemGroup>
-      <PackagesToCopy Include="bin\$(Configuration)\*.nupkg" />
-    </ItemGroup>
-    <Copy SourceFiles="@(PackagesToCopy)" DestinationFolder="..\..\lib\local-packages" />
-  </Target>
 
 </Project>
