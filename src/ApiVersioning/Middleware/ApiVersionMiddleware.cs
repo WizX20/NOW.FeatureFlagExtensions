@@ -29,8 +29,8 @@ namespace NOW.FeatureFlagExtensions.ApiVersioning.Middleware
 
             ApiVersion? apiVersion = null;
 
-            if (_httpContextAccessor.HttpContext.Response?.Headers != null &&
-                !_httpContextAccessor.HttpContext.Response.Headers.ContainsKey(Constants.HttpHeaders.ApiVersion))
+            if (_httpContextAccessor.HttpContext.Request?.Headers != null &&
+                !_httpContextAccessor.HttpContext.Request.Headers.ContainsKey(Constants.HttpHeaders.ApiVersion))
             {
                 apiVersion = _httpContextAccessor.HttpContext.GetRequestedApiVersion();
             }

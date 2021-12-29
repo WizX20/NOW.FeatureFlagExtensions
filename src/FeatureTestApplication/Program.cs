@@ -7,6 +7,7 @@ using FeatureTestApplication.Extensions.ServiceCollection;
 using FeatureTestApplication.Extensions.WebHostEnvironment;
 using FeatureTestApplication.Services;
 using FeatureTestApplication.Swagger.OperationFilters;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.FeatureManagement;
 using NOW.FeatureFlagExtensions.ApiVersioning.Extensions;
@@ -64,6 +65,7 @@ if (apiVersioningOptions != null)
     {
         options.SetDefaultApiVersioningOptions(defaultApiVersion);
         options.Conventions.Controller<TestController>().HasApiVersion(defaultApiVersion);
+        options.Conventions.Controller<FeatureTestApplication.Controllers.v1_1.TestController>().HasApiVersion(new ApiVersion(1, 1));
     });
 
     builder.Services.AddVersionedApiExplorer(options =>
