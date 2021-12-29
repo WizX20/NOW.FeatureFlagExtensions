@@ -10,7 +10,7 @@ namespace FeatureTestApplication.Extensions.ServiceCollection
         /// and adds <see cref="Newtonsoft.Json"/> as default serializer.
         /// </summary>
         /// <param name="services">The services.</param>
-        public static void AddDefaultMvcOptions(this IServiceCollection services)
+        public static void AddDefaultControllerOptions(this IServiceCollection services)
         {
             if (services is null)
             {

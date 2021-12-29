@@ -31,8 +31,7 @@ var configuration = environment.GetConfigurationRoot();
 var appSettings = builder.Services.RegisterAppSettingsConfiguration(configuration);
 
 // Add services to the container.
-builder.Services.AddControllers();
-builder.Services.AddDefaultMvcOptions();
+builder.Services.AddDefaultControllerOptions();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddEndpointsApiExplorer();
 
