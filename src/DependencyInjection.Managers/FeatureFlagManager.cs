@@ -1,4 +1,4 @@
-﻿namespace NOW.FeatureFlagExtensions
+﻿namespace NOW.FeatureFlagExtensions.DependencyInjection.Managers
 {
     public abstract class FeatureFlagManager : IFeatureFlagManager
     {

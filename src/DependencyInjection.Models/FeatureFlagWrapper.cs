@@ -2,10 +2,10 @@
 
 namespace NOW.FeatureFlagExtensions.DependencyInjection.Models
 {
-    public class ImplementationFeature<TService>
+    public class FeatureFlagWrapper<TService>
         where TService : class
     {
-        public ImplementationFeature(
+        public FeatureFlagWrapper(
             [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] Type implementationType,
             string feature)
         {

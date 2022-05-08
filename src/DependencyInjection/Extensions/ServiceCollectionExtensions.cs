@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using NOW.FeatureFlagExtensions.DependencyInjection.Managers;
 using NOW.FeatureFlagExtensions.DependencyInjection.Models;
 using MicrosoftDependencyInjection = Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions;
 
@@ -6,23 +7,9 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddFeatureFlagManager<TImplementation>(
-            this IServiceCollection services)
-            where TImplementation : class, IFeatureFlagManager
-        {
-            if (services == null)
-            {
-                throw new ArgumentNullException(nameof(services));
-            }
-
-            MicrosoftDependencyInjection.AddSingleton<IFeatureFlagManager, TImplementation>(services);
-
-            return services;
-        }
-
         public static IServiceCollection AddScoped<TService, TImplementation>(
             this IServiceCollection services,
-            params ImplementationFeature<TService>[] implementations)
+            params FeatureFlagWrapper<TService>[] implementations)
             where TService : class
             where TImplementation : class, TService
         {
@@ -32,7 +19,6 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Extensions
             MicrosoftDependencyInjection.AddScoped<TImplementation>(services);
 
             // Register feature implementations.
-            var serviceType = typeof(TService);
             foreach (var implementation in implementations)
             {
                 MicrosoftDependencyInjection.AddScoped(services, implementation.ImplementationType);
@@ -46,7 +32,7 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Extensions
 
         public static IServiceCollection AddTransient<TService, TImplementation>(
             this IServiceCollection services,
-            params ImplementationFeature<TService>[] implementations)
+            params FeatureFlagWrapper<TService>[] implementations)
             where TService : class
             where TImplementation : class, TService
         {
@@ -56,7 +42,6 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Extensions
             MicrosoftDependencyInjection.AddTransient<TImplementation>(services);
 
             // Register feature implementations.
-            var serviceType = typeof(TService);
             foreach (var implementation in implementations)
             {
                 MicrosoftDependencyInjection.AddTransient(services, implementation.ImplementationType);
@@ -70,7 +55,8 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Extensions
 
         private static void Guard<TService>(
             IServiceCollection services,
-            ImplementationFeature<TService>[] implementations) where TService : class
+            FeatureFlagWrapper<TService>[] implementations)
+            where TService : class
         {
             if (services == null)
             {
@@ -84,12 +70,15 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Extensions
 
             if (implementations.Length < 1)
             {
-                throw new ArgumentException($"At least one featured implementation is required in the '{nameof(implementations)}' collection.", nameof(implementations));
+                throw new ArgumentException(
+                    $"At least one featured implementation is required in the '{nameof(implementations)}' collection.",
+                    nameof(implementations)
+                );
             }
         }
 
         private static TService GetImplementation<TService, TImplementation>(
-            ImplementationFeature<TService>[] implementations,
+            FeatureFlagWrapper<TService>[] implementations,
             IServiceProvider provider)
             where TService : class
             where TImplementation : class, TService

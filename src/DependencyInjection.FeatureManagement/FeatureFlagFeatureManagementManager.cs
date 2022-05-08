@@ -1,4 +1,5 @@
 ﻿using Microsoft.FeatureManagement;
+using NOW.FeatureFlagExtensions.DependencyInjection.Managers;
 
 namespace NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement
 {

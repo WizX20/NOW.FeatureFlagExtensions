@@ -103,13 +103,13 @@ builder.Services.AddFeatureManagement()
 builder.Services.AddFeatureFlagFeatureManagementManager();
 
 builder.Services.AddScoped<ITestConfiguration, TestConfigurationOne>(
-    new ImplementationFeature<ITestConfiguration>(typeof(TestConfigurationTwo), FeatureFlags.ReleaseFlags.TestFeature.TestConfigurationTwo),
-    new ImplementationFeature<ITestConfiguration>(typeof(TestConfigurationThree), FeatureFlags.ReleaseFlags.TestFeature.TestConfigurationThree)
+    new FeatureFlagWrapper<ITestConfiguration>(typeof(TestConfigurationTwo), FeatureFlags.ReleaseFlags.TestFeature.TestConfigurationTwo),
+    new FeatureFlagWrapper<ITestConfiguration>(typeof(TestConfigurationThree), FeatureFlags.ReleaseFlags.TestFeature.TestConfigurationThree)
 );
 
 builder.Services.AddTransient<ITestService, TestServiceOne>(
-    new ImplementationFeature<ITestService>(typeof(TestServiceTwo), FeatureFlags.ReleaseFlags.TestFeature.TestServiceTwo),
-    new ImplementationFeature<ITestService>(typeof(TestServiceThree), FeatureFlags.ReleaseFlags.TestFeature.TestServiceThree)
+    new FeatureFlagWrapper<ITestService>(typeof(TestServiceTwo), FeatureFlags.ReleaseFlags.TestFeature.TestServiceTwo),
+    new FeatureFlagWrapper<ITestService>(typeof(TestServiceThree), FeatureFlags.ReleaseFlags.TestFeature.TestServiceThree)
 );
 
 // Register basic application services.

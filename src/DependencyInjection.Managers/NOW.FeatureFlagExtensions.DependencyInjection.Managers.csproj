@@ -12,7 +12,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>NOW.FeatureFlagExtensions.DependencyInjection</PackageId>
+    <PackageId>NOW.FeatureFlagExtensions.DependencyInjection.Managers</PackageId>
     <Version>1.0.0-alpha</Version>
     <Authors>WizX20</Authors>
     <Company>Nerds On Waves</Company>
@@ -28,17 +28,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="NOW.FeatureFlagExtensions.DependencyInjection.Managers" Version="1.0.0-alpha" />
-    <PackageReference Include="NOW.FeatureFlagExtensions.DependencyInjection.Models" Version="1.0.0-alpha" />
     <PackageReference Include="Roslynator.Analyzers" Version="4.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-    
-  <ItemGroup>
-    <ProjectReference Include="..\DependencyInjection.Managers\NOW.FeatureFlagExtensions.DependencyInjection.Managers.csproj" />
-    <ProjectReference Include="..\DependencyInjection.Models\NOW.FeatureFlagExtensions.DependencyInjection.Models.csproj" />
   </ItemGroup>
 
 </Project>
