@@ -1,6 +1,6 @@
-﻿namespace FeatureTestApplication.Configurations
+﻿namespace FeatureTestApplication.TestFeatures.DefaultInjection.TransientFeature
 {
-    public abstract class TestConfigurationBase : ITestConfiguration
+    public abstract class TestServiceTransientBase : ITestServiceTransient
     {
         public virtual string Name => throw new NotImplementedException();
 

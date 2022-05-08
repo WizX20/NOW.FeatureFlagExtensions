@@ -32,6 +32,7 @@
 	<ProjectReference Include="..\ApiVersioning.Swagger\NOW.FeatureFlagExtensions.ApiVersioning.Swagger.csproj" />
 	<ProjectReference Include="..\ApiVersioning\NOW.FeatureFlagExtensions.ApiVersioning.csproj" />
 	<ProjectReference Include="..\DependencyInjection.FeatureManagement\NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.csproj" />
+	<ProjectReference Include="..\DependencyInjection.Interceptors\NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.csproj" />
 	<ProjectReference Include="..\DependencyInjection.Managers\NOW.FeatureFlagExtensions.DependencyInjection.Managers.csproj" />
 	<ProjectReference Include="..\DependencyInjection.Models\NOW.FeatureFlagExtensions.DependencyInjection.Models.csproj" />
 	<ProjectReference Include="..\DependencyInjection\NOW.FeatureFlagExtensions.DependencyInjection.csproj" />

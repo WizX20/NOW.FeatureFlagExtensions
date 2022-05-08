@@ -1,6 +1,6 @@
-﻿namespace FeatureTestApplication.Services
+﻿namespace FeatureTestApplication.TestFeatures.InterceptorInjection.ScopedFeature
 {
-    public abstract class TestServiceBase : ITestService
+    public abstract class TestServiceScopedBase : ITestServiceScoped
     {
         public virtual string Name => throw new NotImplementedException();
 

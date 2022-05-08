@@ -20,6 +20,7 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.Extensions
             RegisterRequiredServices(services);
 
             // Register default implementation.
+            MicrosoftDependencyInjection.AddScoped<TImplementation>(services);
             MicrosoftDependencyInjection.AddScoped<TService, TImplementation>(services);
             MicrosoftDependencyInjection.AddScoped(services, provider =>
             {
@@ -49,6 +50,7 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.Extensions
             RegisterRequiredServices(services);
 
             // Register default implementation.
+            MicrosoftDependencyInjection.AddSingleton<TImplementation>(services);
             MicrosoftDependencyInjection.AddSingleton<TService, TImplementation>(services);
             MicrosoftDependencyInjection.AddSingleton(services, provider =>
             {
@@ -78,6 +80,7 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.Extensions
             RegisterRequiredServices(services);
 
             // Register default implementation.
+            MicrosoftDependencyInjection.AddTransient<TImplementation>(services);
             MicrosoftDependencyInjection.AddTransient<TService, TImplementation>(services);
             MicrosoftDependencyInjection.AddTransient(services, provider =>
             {

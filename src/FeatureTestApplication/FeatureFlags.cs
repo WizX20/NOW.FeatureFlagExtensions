@@ -45,13 +45,28 @@
         /// </summary>
         public struct ReleaseFlags
         {
-            public struct TestFeature
+            public struct TestFeatures
             {
-                public const string TestServiceTwo = nameof(TestServiceTwo);
-                public const string TestServiceThree = nameof(TestServiceThree);
+                public struct DefaultInjection
+                {
+                    public const string TestDefaultServiceTwoScoped = nameof(TestDefaultServiceTwoScoped);
+                    public const string TestDefaultServiceThreeScoped = nameof(TestDefaultServiceThreeScoped);
 
-                public const string TestConfigurationTwo = nameof(TestConfigurationTwo);
-                public const string TestConfigurationThree = nameof(TestConfigurationThree);
+                    public const string TestDefaultServiceTwoTransient = nameof(TestDefaultServiceTwoTransient);
+                    public const string TestDefaultServiceThreeTransient = nameof(TestDefaultServiceThreeTransient);
+                }
+
+                public struct InterceptorInjection
+                {
+                    public const string TestInterceptedServiceTwoScoped = nameof(TestInterceptedServiceTwoScoped);
+                    public const string TestInterceptedServiceThreeScoped = nameof(TestInterceptedServiceThreeScoped);
+
+                    public const string TestInterceptedServiceTwoSingleton = nameof(TestInterceptedServiceTwoSingleton);
+                    public const string TestInterceptedServiceThreeSingleton = nameof(TestInterceptedServiceThreeSingleton);
+
+                    public const string TestInterceptedServiceTwoTransient = nameof(TestInterceptedServiceTwoTransient);
+                    public const string TestInterceptedServiceThreeTransient = nameof(TestInterceptedServiceThreeTransient);
+                }
             }
         }
     }
