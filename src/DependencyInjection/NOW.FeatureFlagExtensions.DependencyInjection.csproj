@@ -5,6 +5,9 @@
   <PropertyGroup>
     <PackageId>$(PackageIdPrefix).DependencyInjection</PackageId>
     <Version>1.0.0-alpha</Version>
+    <Description>
+      Contains service-collection extensions, to enable 'hot/live' feature-switching on registered Scoped or Transient services.
+    </Description>
   </PropertyGroup>
 
   <ItemGroup>

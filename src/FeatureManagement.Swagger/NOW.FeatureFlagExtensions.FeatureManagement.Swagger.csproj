@@ -5,6 +5,11 @@
   <PropertyGroup>
     <PackageId>$(PackageIdPrefix).FeatureManagement.Swagger</PackageId>
     <Version>1.0.0-alpha</Version>
+    <Description>
+      This package contains extensions for the 'Microsoft.FeatureManagement' package in combination with Swagger. It contains an additional
+      SwaggerGen FeatureFilterHeaderParameter operation filter, that enables setting any configured feature to true/false via a field in
+      the swagger documentation page, for any Api route/action.
+    </Description>
   </PropertyGroup>
 
   <ItemGroup>

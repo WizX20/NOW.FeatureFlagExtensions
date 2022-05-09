@@ -5,6 +5,10 @@
   <PropertyGroup>
     <PackageId>$(PackageIdPrefix).DependencyInjection.Interceptors</PackageId>
     <Version>1.0.0-alpha</Version>
+    <Description>
+      Contains service-collection extensions, to enable 'hot/live' feature-switching on registered Scoped, Singleton or Transient services,
+      using the 'Catle.Core' interceptors.
+    </Description>
   </PropertyGroup>
 
   <ItemGroup>

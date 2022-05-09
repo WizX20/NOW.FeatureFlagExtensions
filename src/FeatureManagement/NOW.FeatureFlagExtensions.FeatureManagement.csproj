@@ -5,6 +5,14 @@
   <PropertyGroup>
     <PackageId>$(PackageIdPrefix).FeatureManagement</PackageId>
     <Version>1.0.0-alpha</Version>
+    <Description>
+      This package contains extensions for the 'Microsoft.FeatureManagement' package. It enables additional ways of setting feature-flag behavior
+      via the 'appsettings.json' configuration. For example:
+      - AggregateFeatureFilter: Can be used to only enable specific features for all available filters aggregated (all must be true).
+      - ClaimsFeatureFilter: Can be used to only enable specific features for claims the user has.
+      - EnvironementsFeatureFilter: Can be used to only enable specific features for one or more environments specified.
+      - RequestHeadersFeatureFilter: Can be used to only enable specific features for headers that are sent.
+    </Description>
   </PropertyGroup>
 
   <ItemGroup>

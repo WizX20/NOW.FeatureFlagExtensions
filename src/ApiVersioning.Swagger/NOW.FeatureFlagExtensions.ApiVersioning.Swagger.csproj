@@ -6,6 +6,10 @@
     <PackageId>$(PackageIdPrefix).ApiVersioning.Swagger</PackageId>
     <Version>1.0.0-alpha</Version>
     <OpenApiGenerateDocuments>false</OpenApiGenerateDocuments>
+    <Description>
+      This package contains extensions to add a 'Versioned Swagger' and 'Versioned Swagger UI' documentation, 
+      using the `NOW.FeatureFlagExtensions.ApiVersioning` package.
+    </Description>
   </PropertyGroup>
 
   <ItemGroup>
