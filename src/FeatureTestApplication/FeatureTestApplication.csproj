@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
 	<TargetFramework>net6.0</TargetFramework>
@@ -34,9 +34,6 @@
 	<ProjectReference Include="..\ApiVersioning\NOW.FeatureFlagExtensions.ApiVersioning.csproj" />
 	<ProjectReference Include="..\DependencyInjection.FeatureManagement\NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.csproj" />
 	<ProjectReference Include="..\DependencyInjection.Interceptors\NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.csproj" />
-	<ProjectReference Include="..\DependencyInjection.Managers\NOW.FeatureFlagExtensions.DependencyInjection.Managers.csproj" />
-	<ProjectReference Include="..\DependencyInjection.Models\NOW.FeatureFlagExtensions.DependencyInjection.Models.csproj" />
-	<ProjectReference Include="..\DependencyInjection\NOW.FeatureFlagExtensions.DependencyInjection.csproj" />
 	<ProjectReference Include="..\FeatureManagement.Swagger\NOW.FeatureFlagExtensions.FeatureManagement.Swagger.csproj" />
 	<ProjectReference Include="..\FeatureManagement\NOW.FeatureFlagExtensions.FeatureManagement.csproj" />
   </ItemGroup>
