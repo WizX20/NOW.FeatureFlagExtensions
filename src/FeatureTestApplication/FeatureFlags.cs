@@ -3,21 +3,21 @@
     /// <summary>
     /// Available feature flags/toggles, https://www.martinfowler.com/articles/feature-toggles.html
     /// </summary>
-    public struct FeatureFlags
+    public static class FeatureFlags
     {
         /// <summary>
         /// Experiment Toggles are used to perform multivariate or A/B testing.
         /// </summary>
-        public struct ExperimentFlags
+        public static class ExperimentFlags
         {
         }
 
         /// <summary>
         /// Ops Toggles are used to control operational aspects of our system's behavior.
         /// </summary>
-        public struct OpsFlags
+        public static class OpsFlags
         {
-            public struct MyExample
+            public static class MyExample
             {
                 /// <summary>
                 /// Fake responses for all requests.
@@ -35,7 +35,7 @@
         /// Permission Toggles are used to change the features or product experience that
         /// certain users receive.
         /// </summary>
-        public struct PermissionFlags
+        public static class PermissionFlags
         {
         }
 
@@ -43,29 +43,29 @@
         /// Release Toggles allow incomplete and untested code-paths to be shipped to production,
         /// as latent code which may never be turned on.
         /// </summary>
-        public struct ReleaseFlags
+        public static class ReleaseFlags
         {
-            public struct TestFeatures
+            public static class TestFeatures
             {
-                public struct DefaultInjection
+                public static class DefaultInjection
                 {
-                    public const string TestDefaultServiceTwoScoped = nameof(TestDefaultServiceTwoScoped);
-                    public const string TestDefaultServiceThreeScoped = nameof(TestDefaultServiceThreeScoped);
+                    public const string TestDefaultServiceScopedTwo = nameof(TestDefaultServiceScopedTwo);
+                    public const string TestDefaultServiceScopedThree = nameof(TestDefaultServiceScopedThree);
 
-                    public const string TestDefaultServiceTwoTransient = nameof(TestDefaultServiceTwoTransient);
-                    public const string TestDefaultServiceThreeTransient = nameof(TestDefaultServiceThreeTransient);
+                    public const string TestDefaultServiceTransientTwo = nameof(TestDefaultServiceTransientTwo);
+                    public const string TestDefaultServiceTransientThree = nameof(TestDefaultServiceTransientThree);
                 }
 
-                public struct InterceptorInjection
+                public static class InterceptorInjection
                 {
-                    public const string TestInterceptedServiceTwoScoped = nameof(TestInterceptedServiceTwoScoped);
-                    public const string TestInterceptedServiceThreeScoped = nameof(TestInterceptedServiceThreeScoped);
+                    public const string TestInterceptedServiceScopedTwo = nameof(TestInterceptedServiceScopedTwo);
+                    public const string TestInterceptedServiceScopedThree = nameof(TestInterceptedServiceScopedThree);
 
-                    public const string TestInterceptedServiceTwoSingleton = nameof(TestInterceptedServiceTwoSingleton);
-                    public const string TestInterceptedServiceThreeSingleton = nameof(TestInterceptedServiceThreeSingleton);
+                    public const string TestInterceptedServiceSingletonTwo = nameof(TestInterceptedServiceSingletonTwo);
+                    public const string TestInterceptedServiceSingletonThree = nameof(TestInterceptedServiceSingletonThree);
 
-                    public const string TestInterceptedServiceTwoTransient = nameof(TestInterceptedServiceTwoTransient);
-                    public const string TestInterceptedServiceThreeTransient = nameof(TestInterceptedServiceThreeTransient);
+                    public const string TestInterceptedServiceTransientTwo = nameof(TestInterceptedServiceTransientTwo);
+                    public const string TestInterceptedServiceTransientThree = nameof(TestInterceptedServiceTransientThree);
                 }
             }
         }

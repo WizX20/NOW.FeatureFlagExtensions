@@ -26,28 +26,60 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Interceptors
             var targetType = invocation.TargetType;
             var serviceImplementationTypes = _serviceImplementationTypes.GetServiceTypeAssignableFrom(targetType);
 
-            var enabledFeatureFound = false;
+            var targetTypeIsFeatureImplementation = false;
 
             foreach (var (implementationType, feature) in serviceImplementationTypes.Value)
             {
-                var featureIsEnabled = _featureFlagManager.IsEnabled(feature);
-                if (!featureIsEnabled)
+                if (!targetTypeIsFeatureImplementation && implementationType == targetType)
                 {
-                    continue;
+                    targetTypeIsFeatureImplementation = true;
                 }
 
-                enabledFeatureFound = true;
-
-                var implementationObject = _serviceProvider.GetRequiredService(implementationType);
-                var methodInfo = invocation.Method;
-                var parameters = methodInfo.GetParameters();
-                invocation.ReturnValue = methodInfo.Invoke(implementationObject, parameters);
+                var featureIsEnabled = _featureFlagManager.IsEnabled(feature);
+                if (featureIsEnabled)
+                {
+                    if (targetTypeIsFeatureImplementation)
+                    {
+                        invocation.Proceed();
+                        return;
+                    }
+                    else
+                    {
+                        InvokeType(invocation, implementationType);
+                        return;
+                    }
+                }
             }
 
-            if (!enabledFeatureFound)
+            if (targetTypeIsFeatureImplementation)
             {
-                invocation.Proceed();
+                var services = _serviceProvider.GetServices(serviceImplementationTypes.Key);
+                var implementation = services.FirstOrDefault(s =>
+                    s != null &&
+                    !serviceImplementationTypes.Value.Any(si => si.ImplementationType == s.GetType())
+                );
+
+                if (implementation != null)
+                {
+                    InvokeType(invocation, implementation.GetType());
+                    return;
+                }
             }
+
+            invocation.Proceed();
+        }
+
+        private void InvokeType(IInvocation invocation, Type? type)
+        {
+            if (type == null)
+            {
+                throw new ArgumentNullException(nameof(type));
+            }
+
+            var implementationObject = _serviceProvider.GetRequiredService(type);
+            var methodInfo = invocation.Method;
+            var parameters = methodInfo.GetParameters();
+            invocation.ReturnValue = methodInfo.Invoke(implementationObject, parameters);
         }
     }
 }

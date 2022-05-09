@@ -33,7 +33,11 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.Extensions
             var serviceType = typeof(TService);
             foreach (var implementation in implementations)
             {
+                MicrosoftDependencyInjection.AddScoped(services, implementation.ImplementationType);
                 MicrosoftDependencyInjection.AddScoped(services, serviceType, implementation.ImplementationType);
+                MicrosoftDependencyInjection.AddScoped(services, serviceType, provider => {
+                    return provider.GetInterfaceProxyWithTarget<TService>(implementation.ImplementationType);
+                });
             }
 
             return services;
@@ -63,7 +67,11 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.Extensions
             var serviceType = typeof(TService);
             foreach (var implementation in implementations)
             {
+                MicrosoftDependencyInjection.AddSingleton(services, implementation.ImplementationType);
                 MicrosoftDependencyInjection.AddSingleton(services, serviceType, implementation.ImplementationType);
+                MicrosoftDependencyInjection.AddSingleton(services, serviceType, provider => {
+                    return provider.GetInterfaceProxyWithTarget<TService>(implementation.ImplementationType);
+                });
             }
 
             return services;
@@ -93,7 +101,11 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.Extensions
             var serviceType = typeof(TService);
             foreach (var implementation in implementations)
             {
+                MicrosoftDependencyInjection.AddTransient(services, implementation.ImplementationType);
                 MicrosoftDependencyInjection.AddTransient(services, serviceType, implementation.ImplementationType);
+                MicrosoftDependencyInjection.AddTransient(services, serviceType, provider => {
+                    return provider.GetInterfaceProxyWithTarget<TService>(implementation.ImplementationType);
+                });
             }
 
             return services;

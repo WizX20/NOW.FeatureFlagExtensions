@@ -34,34 +34,27 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Models
                 .SingleOrDefault();
         }
 
-        public bool TryAdd(Type serviceType, Type implementationType, string feature)
+        public void AddOrUpdate(Type serviceType, Type implementationType, string feature)
         {
-            // Add new.
-            if (!_serviceImplementationTypes.ContainsKey(serviceType))
-            {
-                return _serviceImplementationTypes.TryAdd(
-                    serviceType,
-                    new List<(Type, string)> { (implementationType, feature) }
-                );
-            }
+            var addedStuff = _serviceImplementationTypes.AddOrUpdate(
+                serviceType,
+                new List<(Type, string)> { (implementationType, feature) },
+                (key, existingImplementationTypes) =>
+                {
+                    var newImplementationTypes = existingImplementationTypes.ToList();
+                    var hasExistingImplementationType = existingImplementationTypes.Any(t =>
+                        t.ImplementationType == implementationType &&
+                        t.Feature == feature
+                    );
 
-            // Update existing.
-            var existingImplementationTypes = Get(serviceType);
-            var hasExistingImplementationType = existingImplementationTypes.Any(t =>
-                t.ImplementationType == implementationType &&
-                t.Feature == feature
+                    if (!hasExistingImplementationType)
+                    {
+                        newImplementationTypes.Add((implementationType, feature));
+                    }
+
+                    return newImplementationTypes;
+                }
             );
-
-            if (!hasExistingImplementationType)
-            {
-                var newImplementationTypes = existingImplementationTypes.ToList();
-                newImplementationTypes.Add((implementationType, feature));
-
-                return _serviceImplementationTypes.TryUpdate(serviceType, newImplementationTypes, existingImplementationTypes);
-            }
-
-            // Combination of types already exists.
-            return true;
         }
 
         public bool TryRemove(Type key)

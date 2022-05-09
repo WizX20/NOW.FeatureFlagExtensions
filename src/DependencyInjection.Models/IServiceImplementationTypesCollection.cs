@@ -10,7 +10,7 @@
 
         KeyValuePair<Type, IEnumerable<(Type ImplementationType, string Feature)>> GetServiceTypeAssignableFrom(Type implementationType);
 
-        bool TryAdd(Type serviceType, Type implementationType, string feature);
+        void AddOrUpdate(Type serviceType, Type implementationType, string feature);
 
         bool TryRemove(Type key);
     }

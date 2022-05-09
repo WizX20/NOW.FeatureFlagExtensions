@@ -14,8 +14,19 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Models.Extensions
 
             foreach (var implementation in implementations)
             {
-                _ = serviceImplementationTypesCollection.TryAdd(serviceType, implementation.ImplementationType, implementation.Feature);
+                serviceImplementationTypesCollection.AddOrUpdate(serviceType, implementation.ImplementationType, implementation.Feature);
             }
+        }
+
+        public static void StoreInServiceImplementationTypesCollection<TService>(
+            this FeatureFlagWrapper<TService> implementation,
+            IServiceProvider provider)
+            where TService : class
+        {
+            var serviceType = typeof(TService);
+            var serviceImplementationTypesCollection = provider.GetRequiredService<IServiceImplementationTypesCollection>();
+
+            serviceImplementationTypesCollection.AddOrUpdate(serviceType, implementation.ImplementationType, implementation.Feature);
         }
     }
 }
