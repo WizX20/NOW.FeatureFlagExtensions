@@ -1,21 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)'=='Release'">
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageOutputPath>..\..\lib\local-packages</PackageOutputPath>
-  </PropertyGroup>
+  <Import Project="$(CCResourceProjectProps)" Condition="Exists('$(CCResourceProjectProps)')" />
 
   <PropertyGroup>
-    <PackageId>NOW.FeatureFlagExtensions.FeatureManagement.Swagger</PackageId>
+    <PackageId>$(PackageIdPrefix).FeatureManagement.Swagger</PackageId>
     <Version>1.0.0-alpha</Version>
-    <Authors>WizX20</Authors>
-    <Company>Nerds On Waves</Company>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,16 +13,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.FeatureManagement" Version="2.5.1" />
-    <PackageReference Include="NOW.FeatureFlagExtensions.FeatureManagement" Version="1.0.0-alpha" />
+    <PackageReference Include="NOW.FeatureFlagExtensions.FeatureManagement" Version="$(PackageVersionScope)" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.3.1" />
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Roslynator.Analyzers" Version="4.1.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>

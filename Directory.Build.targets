@@ -1,0 +1,5 @@
+<Project>
+    <Target Name="CheckCCPropertyFiles" BeforeTargets="Build">
+      <Error Text="Could not load package.props file." Condition="!Exists('$(CCPackageProps)')" />
+    </Target>
+</Project>

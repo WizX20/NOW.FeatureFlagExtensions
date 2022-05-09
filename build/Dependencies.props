@@ -1,0 +1,7 @@
+<Project>
+  
+  <PropertyGroup Label="Framework Versions">
+    <ResourceProjectTargetFrameworks>net6.0</ResourceProjectTargetFrameworks>
+  </PropertyGroup>
+  
+</Project>

@@ -1,0 +1,46 @@
+<Project>
+  
+  <PropertyGroup>
+	<PackageIdPrefix>NOW.FeatureFlagExtensions</PackageIdPrefix>
+	<PackageVersionScope>[1,3)</PackageVersionScope>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+	<DebugType>embedded</DebugType>
+	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<PackageOutputPath>..\..\lib\local-packages</PackageOutputPath>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <Product>NOW FeatureFlag Extensions</Product>
+    <Authors>WizX20 and contributors</Authors>
+    <Company>Nerds On Waves</Company>
+    <Copyright>Copyright © $(Company) $([System.DateTime]::Now.Year)</Copyright>
+    <PackageLicenseUrl>https://github.com/WizX20/NOW.FeatureFlagExtensions/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/WizX20/NOW.FeatureFlagExtensions</PackageProjectUrl>
+    <PackageReleaseNotes>Release notes: https://github.com/WizX20/NOW.FeatureFlagExtensions/releases/$(Version)</PackageReleaseNotes>
+    <PackageTags>NOW FeatureFlag FeatureToggle FeatureFlagExtensions Container DependencyInjection Versioning API .Net Swagger</PackageTags>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageIconUrl>https://github.com/WizX20/NOW.FeatureFlagExtensions/blob/master/res/logo/logo.png</PackageIconUrl>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <RepositoryUrl>https://github.com/WizX20/NOW.FeatureFlagExtensions.git</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+  
+  <ItemGroup>
+	<SourceRoot Include="$(MSBuildThisFileDirectory)/"/>
+	<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+	  <PrivateAssets>all</PrivateAssets>
+	  <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+	</PackageReference>
+  </ItemGroup>
+
+</Project>

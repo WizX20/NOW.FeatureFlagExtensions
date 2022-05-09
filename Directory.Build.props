@@ -1,0 +1,13 @@
+<Project>
+
+  <PropertyGroup>
+    <CCSourceDirectory>$(MSBuildThisFileDirectory.TrimEnd('\').TrimEnd('/'))</CCSourceDirectory>
+    <CCDependenciesProps>$([System.IO.Path]::Combine($(CCSourceDirectory), 'build', 'Dependencies.props'))</CCDependenciesProps>
+	<CCPackageProps>$([System.IO.Path]::Combine($(CCSourceDirectory), 'build', 'Package.props'))</CCPackageProps>
+	<CCResourceProjectProps>$([System.IO.Path]::Combine($(CCSourceDirectory), 'build', 'ResourceProject.props'))</CCResourceProjectProps>
+  </PropertyGroup>
+
+  <Import Project="$(CCDependenciesProps)" Condition="Exists('$(CCDependenciesProps)')"/>
+  <Import Project="$(CCPackageProps)" Condition="Exists('$(CCPackageProps)')"/>
+
+</Project>
