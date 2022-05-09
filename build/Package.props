@@ -2,7 +2,7 @@
   
   <PropertyGroup>
 	<PackageIdPrefix>NOW.FeatureFlagExtensions</PackageIdPrefix>
-	<PackageVersionScope>[1,3)</PackageVersionScope>
+	<PackageVersionScope>1.*</PackageVersionScope>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
