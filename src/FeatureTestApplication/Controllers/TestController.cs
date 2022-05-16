@@ -5,7 +5,8 @@ using InterceptorInjectionTests = FeatureTestApplication.TestFeatures.Intercepto
 namespace FeatureTestApplication.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class TestController : ControllerBase
     {
         private readonly ILogger<TestController> _logger;
