@@ -27,14 +27,7 @@ namespace NOW.FeatureFlagExtensions.ApiVersioning.Middleware
                 return;
             }
 
-            ApiVersion? apiVersion = null;
-
-            if (_httpContextAccessor.HttpContext.Request?.Headers != null &&
-                !_httpContextAccessor.HttpContext.Request.Headers.ContainsKey(Constants.HttpHeaders.ApiVersion))
-            {
-                apiVersion = _httpContextAccessor.HttpContext.GetRequestedApiVersion();
-            }
-
+            ApiVersion? apiVersion = _httpContextAccessor.HttpContext.GetRequestedApiVersion();
             if (apiVersion == null && _apiVersioningOptions.DefaultVersion != null)
             {
                 apiVersion = new ApiVersion(
