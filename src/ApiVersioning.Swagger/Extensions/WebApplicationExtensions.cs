@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace NOW.FeatureFlagExtensions.ApiVersioning.Swagger.Extensions
 {
-    public static class IApplicationBuilderExtensions
+    public static class WebApplicationExtensions
     {
         /// <summary>
         /// Default JSON route used when none was found in the active configuration.
@@ -15,7 +16,7 @@ namespace NOW.FeatureFlagExtensions.ApiVersioning.Swagger.Extensions
         /// Activates a versioned swagger configuration.
         /// </summary>
         public static void UseVersionedSwagger(
-            this IApplicationBuilder app,
+            this WebApplication app,
             string? jsonRoute = null,
             ILogger? logger = null)
         {
@@ -41,8 +42,7 @@ namespace NOW.FeatureFlagExtensions.ApiVersioning.Swagger.Extensions
         /// Activates a versioned swagger configuration.
         /// </summary>
         public static void UseVersionedSwaggerUI(
-            this IApplicationBuilder app,
-            IApiVersionDescriptionProvider apiVersionDescriptionProvider,
+            this WebApplication app,
             string? jsonRoute = null,
             ILogger? logger = null)
         {
@@ -51,6 +51,7 @@ namespace NOW.FeatureFlagExtensions.ApiVersioning.Swagger.Extensions
                 throw new ArgumentNullException(nameof(app));
             }
 
+            var apiVersionDescriptionProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
             if (apiVersionDescriptionProvider is null)
             {
                 throw new ArgumentNullException(nameof(apiVersionDescriptionProvider));
