@@ -6,7 +6,6 @@ using FeatureTestApplication.Extensions.ServiceCollection;
 using FeatureTestApplication.Extensions.WebHostEnvironment;
 using FeatureTestApplication.Swagger.OperationFilters;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.FeatureManagement;
 using NOW.FeatureFlagExtensions.ApiVersioning.Extensions;
 using NOW.FeatureFlagExtensions.ApiVersioning.Middleware;
@@ -60,8 +59,12 @@ if (responseCachingOptions != null)
 var apiVersioningOptions = appSettings.ApiVersioning;
 if (apiVersioningOptions != null)
 {
-    var defaultApiVersion = configuration.GetDefaultApiVersion(nameof(AppSettingsConfiguration.ApiVersioning), Constants.ApiVersioning.DefaultApiVersion);
     builder.Services.AddSingleton(apiVersioningOptions);
+
+    var defaultApiVersion = configuration.GetDefaultApiVersion(
+        configurationSection: nameof(AppSettingsConfiguration.ApiVersioning),
+        defaultApiVersionFallback: Constants.ApiVersioning.DefaultApiVersion
+    );
 
     builder.Services.AddApiVersioning(options =>
     {
@@ -94,7 +97,10 @@ builder.Services.AddSwaggerGen(options =>
         options.SetDefaultApiVersioningOptions();
     }
 
-    options.OperationFilter<FeatureFilterHeaderParameter>(); // Add a header operation filter which sets feature switches.
+    // Add a header operation filter which sets feature switches.
+    options.OperationFilter<FeatureFilterHeaderParameter>();
+
+    // Example filters for file-result and validation.
     options.OperationFilter<FileResultContentTypeOperationFilter>();
     options.OperationFilter<ValidateRequiredParameters>();
 });
@@ -148,12 +154,13 @@ if (app.Environment.IsDevelopment())
 {
     if (apiVersioningOptions != null)
     {
-        var apiVersionDescriptionProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
+        // Add versioned Swagger docs using the FeatureFlagExtensions package.
         app.UseVersionedSwagger();
-        app.UseVersionedSwaggerUI(apiVersionDescriptionProvider);
+        app.UseVersionedSwaggerUI();
     }
     else
     {
+        // Add default Swagger docs.
         app.UseSwagger();
         app.UseSwaggerUI();
     }
