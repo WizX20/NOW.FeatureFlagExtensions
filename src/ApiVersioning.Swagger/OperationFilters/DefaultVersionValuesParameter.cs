@@ -66,7 +66,7 @@ namespace NOW.FeatureFlagExtensions.ApiVersioning.Swagger.OperationFilters
                     parameter.Schema.Default = new OpenApiString(description.DefaultValue.ToString());
                 }
 
-                parameter.Required |= description.IsRequired;
+                parameter.Required = false;
             }
         }
     }
