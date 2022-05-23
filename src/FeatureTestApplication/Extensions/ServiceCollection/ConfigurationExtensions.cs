@@ -1,4 +1,5 @@
 ﻿using FeatureTestApplication.Configuration;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace FeatureTestApplication.Extensions.ServiceCollection
 {
@@ -25,7 +26,7 @@ namespace FeatureTestApplication.Extensions.ServiceCollection
             var appSettings = new AppSettingsConfiguration();
             configuration.Bind(appSettings);
 
-            services.AddSingleton(appSettings);
+            services.TryAddSingleton(appSettings);
 
             return appSettings;
         }
