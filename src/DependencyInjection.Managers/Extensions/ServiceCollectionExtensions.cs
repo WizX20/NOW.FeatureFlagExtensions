@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using MicrosoftDependencyInjection = Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace NOW.FeatureFlagExtensions.DependencyInjection.Managers.Extensions
 {
@@ -14,7 +14,7 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Managers.Extensions
                 throw new ArgumentNullException(nameof(services));
             }
 
-            MicrosoftDependencyInjection.AddSingleton<IFeatureFlagManager, TImplementation>(services);
+            services.TryAddSingleton<IFeatureFlagManager, TImplementation>();
 
             return services;
         }
