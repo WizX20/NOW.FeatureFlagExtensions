@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using DefaultInjectionTests = FeatureTestApplication.TestFeatures.DefaultInjection;
-using InterceptorInjectionTests = FeatureTestApplication.TestFeatures.InterceptorInjection;
+using DefaultInjectionTests = TestFeatures.DefaultInjection;
+using InterceptorInjectionTests = TestFeatures.InterceptorInjection;
 
 namespace FeatureTestApplication.Controllers
 {

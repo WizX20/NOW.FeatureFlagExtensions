@@ -18,10 +18,10 @@ using NOW.FeatureFlagExtensions.DependencyInjection.Models;
 using NOW.FeatureFlagExtensions.FeatureManagement.Extensions;
 using NOW.FeatureFlagExtensions.FeatureManagement.Swagger.OperationFilters;
 using NOW.FeatureTestApplication.Extensions.ServiceCollection;
-using DefaultInjectionFlags = FeatureTestApplication.FeatureFlags.ReleaseFlags.TestFeatures.DefaultInjection;
-using DefaultInjectionTests = FeatureTestApplication.TestFeatures.DefaultInjection;
-using InterceptorInjectionFlags = FeatureTestApplication.FeatureFlags.ReleaseFlags.TestFeatures.InterceptorInjection;
-using InterceptorInjectionTests = FeatureTestApplication.TestFeatures.InterceptorInjection;
+using DefaultInjectionFlags = TestFeatures.FeatureFlags.ReleaseFlags.TestFeatures.DefaultInjection;
+using DefaultInjectionTests = TestFeatures.DefaultInjection;
+using InterceptorInjectionFlags = TestFeatures.FeatureFlags.ReleaseFlags.TestFeatures.InterceptorInjection;
+using InterceptorInjectionTests = TestFeatures.InterceptorInjection;
 
 /*
     Start of application start-up.
