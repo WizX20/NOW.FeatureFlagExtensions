@@ -51,6 +51,47 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Tests.Extensions.Service
             return implementations.ToArray();
         }
 
+        public static FeatureFlagWrapper<Features.TransientFeature.ITestServiceTransient>[] SetTransientFeatures(
+            IServiceCollection services,
+            bool addTestServiceTwo = false,
+            bool enableTestServiceTwo = false,
+            bool addTestServiceThree = false,
+            bool enableTestServiceThree = false)
+        {
+            var testManagerState = new TestManagerState();
+            var implementations = new List<FeatureFlagWrapper<Features.TransientFeature.ITestServiceTransient>>();
+
+            if (addTestServiceTwo)
+            {
+                implementations.Add(
+                    new FeatureFlagWrapper<Features.TransientFeature.ITestServiceTransient>(
+                        typeof(Features.TransientFeature.TestServiceTwoTransient),
+                        Flags.TestDefaultServiceTransientTwo
+                    )
+                );
+
+                testManagerState.Add(Flags.TestDefaultServiceTransientTwo, enableTestServiceTwo);
+            }
+
+            if (addTestServiceThree)
+            {
+                implementations.Add(
+                    new FeatureFlagWrapper<Features.TransientFeature.ITestServiceTransient>(
+                        typeof(Features.TransientFeature.TestServiceThreeTransient),
+                        Flags.TestDefaultServiceTransientThree
+                    )
+                );
+
+                testManagerState.Add(Flags.TestDefaultServiceTransientThree, enableTestServiceThree);
+            }
+
+            services.AddSingleton<ITestManagerState>(testManagerState);
+
+            AddTestFeatureFlagManager(services);
+
+            return implementations.ToArray();
+        }
+
         public static TestManager AddTestFeatureFlagManager(
             IServiceCollection services)
         {
