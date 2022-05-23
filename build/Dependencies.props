@@ -2,6 +2,7 @@
   
   <PropertyGroup Label="Framework Versions">
     <ResourceProjectTargetFrameworks>net6.0</ResourceProjectTargetFrameworks>
+    <TestProjectTargetFrameworks>net6.0</TestProjectTargetFrameworks>
   </PropertyGroup>
   
 </Project>
