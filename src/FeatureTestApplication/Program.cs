@@ -6,6 +6,7 @@ using FeatureTestApplication.Extensions.ServiceCollection;
 using FeatureTestApplication.Extensions.WebHostEnvironment;
 using FeatureTestApplication.Swagger.OperationFilters;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.FeatureManagement;
 using NOW.FeatureFlagExtensions.ApiVersioning.Extensions;
 using NOW.FeatureFlagExtensions.ApiVersioning.Middleware;
@@ -59,7 +60,7 @@ if (responseCachingOptions != null)
 var apiVersioningOptions = appSettings.ApiVersioning;
 if (apiVersioningOptions != null)
 {
-    builder.Services.AddSingleton(apiVersioningOptions);
+    builder.Services.TryAddSingleton(apiVersioningOptions);
 
     var defaultApiVersion = configuration.GetDefaultApiVersion(
         configurationSection: nameof(AppSettingsConfiguration.ApiVersioning),
@@ -85,13 +86,19 @@ if (apiVersioningOptions != null)
     });
 }
 
+// Configure versioned SwaggerGen options.
+if (apiVersioningOptions != null)
+{
+    builder.Services.ConfigureApiVersioningSwaggerGenOptions();
+}
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.ConfigureApiVersioningSwaggerGenOptions();
 builder.Services.AddSwaggerGen(options =>
 {
     options.CustomSchemaIds(x => x.FullName);
     options.EnableAnnotations();
 
+    // Configures swagger for support with versioning via the path, query or header.
     if (apiVersioningOptions != null)
     {
         options.SetDefaultApiVersioningOptions();
@@ -112,28 +119,48 @@ builder.Services.AddFeatureManagement()
 builder.Services.AddFeatureFlagFeatureManagementManager();
 
 builder.Services.AddScoped<DefaultInjectionTests.ScopedFeature.ITestServiceScoped, DefaultInjectionTests.ScopedFeature.TestServiceOneScoped>(
-    new FeatureFlagWrapper<DefaultInjectionTests.ScopedFeature.ITestServiceScoped>(typeof(DefaultInjectionTests.ScopedFeature.TestServiceTwoScoped), DefaultInjectionFlags.TestDefaultServiceScopedTwo),
-    new FeatureFlagWrapper<DefaultInjectionTests.ScopedFeature.ITestServiceScoped>(typeof(DefaultInjectionTests.ScopedFeature.TestServiceThreeScoped), DefaultInjectionFlags.TestDefaultServiceScopedThree)
+    new FeatureFlagWrapper<DefaultInjectionTests.ScopedFeature.ITestServiceScoped>(
+        typeof(DefaultInjectionTests.ScopedFeature.TestServiceTwoScoped),
+        DefaultInjectionFlags.TestDefaultServiceScopedTwo),
+    new FeatureFlagWrapper<DefaultInjectionTests.ScopedFeature.ITestServiceScoped>(
+        typeof(DefaultInjectionTests.ScopedFeature.TestServiceThreeScoped),
+        DefaultInjectionFlags.TestDefaultServiceScopedThree)
 );
 
 builder.Services.AddTransient<DefaultInjectionTests.TransientFeature.ITestServiceTransient, DefaultInjectionTests.TransientFeature.TestServiceOneTransient>(
-    new FeatureFlagWrapper<DefaultInjectionTests.TransientFeature.ITestServiceTransient>(typeof(DefaultInjectionTests.TransientFeature.TestServiceTwoTransient), DefaultInjectionFlags.TestDefaultServiceTransientTwo),
-    new FeatureFlagWrapper<DefaultInjectionTests.TransientFeature.ITestServiceTransient>(typeof(DefaultInjectionTests.TransientFeature.TestServiceThreeTransient), DefaultInjectionFlags.TestDefaultServiceTransientThree)
+    new FeatureFlagWrapper<DefaultInjectionTests.TransientFeature.ITestServiceTransient>(
+        typeof(DefaultInjectionTests.TransientFeature.TestServiceTwoTransient),
+        DefaultInjectionFlags.TestDefaultServiceTransientTwo),
+    new FeatureFlagWrapper<DefaultInjectionTests.TransientFeature.ITestServiceTransient>(
+        typeof(DefaultInjectionTests.TransientFeature.TestServiceThreeTransient),
+        DefaultInjectionFlags.TestDefaultServiceTransientThree)
 );
 
 builder.Services.AddInterceptedScoped<InterceptorInjectionTests.ScopedFeature.ITestServiceScoped, InterceptorInjectionTests.ScopedFeature.TestServiceOneScoped>(
-    new FeatureFlagWrapper<InterceptorInjectionTests.ScopedFeature.ITestServiceScoped>(typeof(InterceptorInjectionTests.ScopedFeature.TestServiceTwoScoped), InterceptorInjectionFlags.TestInterceptedServiceScopedTwo),
-    new FeatureFlagWrapper<InterceptorInjectionTests.ScopedFeature.ITestServiceScoped>(typeof(InterceptorInjectionTests.ScopedFeature.TestServiceThreeScoped), InterceptorInjectionFlags.TestInterceptedServiceScopedThree)
+    new FeatureFlagWrapper<InterceptorInjectionTests.ScopedFeature.ITestServiceScoped>(
+        typeof(InterceptorInjectionTests.ScopedFeature.TestServiceTwoScoped),
+        InterceptorInjectionFlags.TestInterceptedServiceScopedTwo),
+    new FeatureFlagWrapper<InterceptorInjectionTests.ScopedFeature.ITestServiceScoped>(
+        typeof(InterceptorInjectionTests.ScopedFeature.TestServiceThreeScoped),
+        InterceptorInjectionFlags.TestInterceptedServiceScopedThree)
 );
 
 builder.Services.AddInterceptedSingleton<InterceptorInjectionTests.SingletonFeature.ITestServiceSingleton, InterceptorInjectionTests.SingletonFeature.TestServiceOneSingleton>(
-    new FeatureFlagWrapper<InterceptorInjectionTests.SingletonFeature.ITestServiceSingleton>(typeof(InterceptorInjectionTests.SingletonFeature.TestServiceTwoSingleton), InterceptorInjectionFlags.TestInterceptedServiceSingletonTwo),
-    new FeatureFlagWrapper<InterceptorInjectionTests.SingletonFeature.ITestServiceSingleton>(typeof(InterceptorInjectionTests.SingletonFeature.TestServiceThreeSingleton), InterceptorInjectionFlags.TestInterceptedServiceSingletonThree)
+    new FeatureFlagWrapper<InterceptorInjectionTests.SingletonFeature.ITestServiceSingleton>(
+        typeof(InterceptorInjectionTests.SingletonFeature.TestServiceTwoSingleton),
+        InterceptorInjectionFlags.TestInterceptedServiceSingletonTwo),
+    new FeatureFlagWrapper<InterceptorInjectionTests.SingletonFeature.ITestServiceSingleton>(
+        typeof(InterceptorInjectionTests.SingletonFeature.TestServiceThreeSingleton),
+        InterceptorInjectionFlags.TestInterceptedServiceSingletonThree)
 );
 
 builder.Services.AddInterceptedTransient<InterceptorInjectionTests.TransientFeature.ITestServiceTransient, InterceptorInjectionTests.TransientFeature.TestServiceOneTransient>(
-    new FeatureFlagWrapper<InterceptorInjectionTests.TransientFeature.ITestServiceTransient>(typeof(InterceptorInjectionTests.TransientFeature.TestServiceTwoTransient), InterceptorInjectionFlags.TestInterceptedServiceTransientTwo),
-    new FeatureFlagWrapper<InterceptorInjectionTests.TransientFeature.ITestServiceTransient>(typeof(InterceptorInjectionTests.TransientFeature.TestServiceThreeTransient), InterceptorInjectionFlags.TestInterceptedServiceTransientThree)
+    new FeatureFlagWrapper<InterceptorInjectionTests.TransientFeature.ITestServiceTransient>(
+        typeof(InterceptorInjectionTests.TransientFeature.TestServiceTwoTransient),
+        InterceptorInjectionFlags.TestInterceptedServiceTransientTwo),
+    new FeatureFlagWrapper<InterceptorInjectionTests.TransientFeature.ITestServiceTransient>(
+        typeof(InterceptorInjectionTests.TransientFeature.TestServiceThreeTransient),
+        InterceptorInjectionFlags.TestInterceptedServiceTransientThree)
 );
 
 // Register basic application services.
