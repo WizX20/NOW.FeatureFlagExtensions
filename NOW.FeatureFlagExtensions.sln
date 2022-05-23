@@ -51,7 +51,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{FCC8266A-42D9-4A0A-AF0B-8807452DDEE0}"
 	ProjectSection(SolutionItems) = preProject
 		docs\CODE_OF_CONDUCT.md = docs\CODE_OF_CONDUCT.md
-		docs\README.md = docs\README.md
 	EndProjectSection
 EndProject
 Global

@@ -1,20 +1,4 @@
-![Snapshooter](https://raw.githubusercontent.com/WizX20/NOW.FeatureFlagExtensions/master/res/banner/banner.png?token=GHSAT0AAAAAABUKDU6UD5FLWBDLMULB3WWCYTZSBAQ)
-
-**NOW FeatureFlag Extensions is a set of extensions to support feature switching**
-
-## Getting started
-
-Clone the repository and run the included *FeatureTestApplication*, the default start-page will be the swagger documentation page,where you 
-can play around with the registered test-features.
-
-Additionally, you can visit `/allservices`, to display all service registrations.
-
-
-## Features
-
-### Api Versioning
-
-#### NOW.FeatureFlagExtensions.ApiVersioning
+# NOW.FeatureFlagExtensions.ApiVersioning
 
 Simplifies setup and configuration for API Version behavior with `Microsoft.AspNetCore.Mvc.Versioning`. The middleware provided combines
 path (_URL_), query-string and header version-readers.
@@ -24,6 +8,8 @@ path (_URL_), query-string and header version-readers.
   **"400 - AmbiguousApiVersion"** error will be returned;
 - When both the query-string and the header are missing the API version, the on from the path, or otherwise, default, API Version will
   be used.
+
+![Swagger doc with version fields](docs/ApiVersioning.png)
 
 This package contains configuration options, to set a default Api Version and Api Description properties. Additionally, middleware is 
 provided, to append the active Api Version to the Api response headers.
@@ -122,79 +108,3 @@ var app = builder.Build();
 // Configure middleware.
 app.UseMiddleware<ApiVersionMiddleware>();
 ```
-
-#### NOW.FeatureFlagExtensions.ApiVersioning.Swagger
-
-This package contains extensions to add a 'Versioned Swagger' and 'Versioned Swagger UI' documentation, using the 
-`NOW.FeatureFlagExtensions.ApiVersioning` package.
-
-TODO IMAGE
-
-```csharp
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.ConfigureApiVersioningSwaggerGenOptions();
-builder.Services.AddSwaggerGen(options =>
-{
-    ...
-
-    if (apiVersioningOptions != null)
-    {
-        options.SetDefaultApiVersioningOptions();
-    }
-
-    ...
-});
-```
-
-EXPLAIN
-
-```csharp
-/*
-    Start of the HTTP request pipeline configuration.
-*/
-var app = builder.Build();
-
-if (app.Environment.IsDevelopment())
-{
-    if (apiVersioningOptions != null)
-    {
-        // Add versioned Swagger docs using the FeatureFlagExtensions package.
-        app.UseVersionedSwagger();
-        app.UseVersionedSwaggerUI();
-    }
-    else
-    {
-        // Add default Swagger docs.
-        app.UseSwagger();
-        app.UseSwaggerUI();
-    }
-
-    app.UseDeveloperExceptionPage();
-}
-
-// Configure middleware.
-app.UseMiddleware<ApiVersionMiddleware>();
-```
-
-EXPLAIN
-
-### Dependency Injection
-
-#### NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement
-
-`NOW.FeatureFlagExtensions.DependencyInjection` to build own impl.
-
-#### NOW.FeatureFlagExtensions.DependencyInjection.Interceptors
-
-A
-
-
-### Microsoft FeatureManagement
-
-#### NOW.FeatureFlagExtensions.FeatureManagement
-
-A
-
-#### NOW.FeatureFlagExtensions.FeatureManagement.Swagger
-
-A
