@@ -101,18 +101,11 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Tests.Extensions.Service
         {
             // Arrange
             IServiceCollection services = new ServiceCollection();
-            var implementations = new FeatureFlagWrapper<Features.ITestServiceScoped>[] {
-                new FeatureFlagWrapper<Features.ITestServiceScoped>(
-                    typeof(Features.TestServiceTwoScoped),
-                    Flags.TestDefaultServiceScopedTwo
-                )
-            };
-
-            var testManagerState = new TestManagerState();
-            testManagerState.Add(Flags.TestDefaultServiceScopedTwo, false);
-            services.AddSingleton<ITestManagerState>(testManagerState);
-
-            _ = ServiceCollectionExtensionsFixture.AddTestFeatureFlagManager(services);
+            var implementations = ServiceCollectionExtensionsFixture.SetScopedFeatures(
+                services: services,
+                addTestServiceTwo: true,
+                enableTestServiceTwo: false
+            );
 
             // Act
             ServiceCollectionExtensions.AddScoped<Features.ITestServiceScoped, Features.TestServiceOneScoped>(
@@ -132,23 +125,13 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Tests.Extensions.Service
         {
             // Arrange
             IServiceCollection services = new ServiceCollection();
-            var implementations = new FeatureFlagWrapper<Features.ITestServiceScoped>[] {
-                new FeatureFlagWrapper<Features.ITestServiceScoped>(
-                    typeof(Features.TestServiceTwoScoped),
-                    Flags.TestDefaultServiceScopedTwo
-                ),
-                new FeatureFlagWrapper<Features.ITestServiceScoped>(
-                    typeof(Features.TestServiceThreeScoped),
-                    Flags.TestDefaultServiceScopedThree
-                )
-            };
-
-            var testManagerState = new TestManagerState();
-            testManagerState.Add(Flags.TestDefaultServiceScopedTwo, false);
-            testManagerState.Add(Flags.TestDefaultServiceScopedThree, false);
-            services.AddSingleton<ITestManagerState>(testManagerState);
-
-            _ = ServiceCollectionExtensionsFixture.AddTestFeatureFlagManager(services);
+            var implementations = ServiceCollectionExtensionsFixture.SetScopedFeatures(
+                services: services,
+                addTestServiceTwo: true,
+                enableTestServiceTwo: false,
+                addTestServiceThree: true,
+                enableTestServiceThree: false
+            );
 
             // Act
             ServiceCollectionExtensions.AddScoped<Features.ITestServiceScoped, Features.TestServiceOneScoped>(
@@ -168,23 +151,13 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Tests.Extensions.Service
         {
             // Arrange
             IServiceCollection services = new ServiceCollection();
-            var implementations = new FeatureFlagWrapper<Features.ITestServiceScoped>[] {
-                new FeatureFlagWrapper<Features.ITestServiceScoped>(
-                    typeof(Features.TestServiceTwoScoped),
-                    Flags.TestDefaultServiceScopedTwo
-                ),
-                new FeatureFlagWrapper<Features.ITestServiceScoped>(
-                    typeof(Features.TestServiceThreeScoped),
-                    Flags.TestDefaultServiceScopedThree
-                )
-            };
-
-            var testManagerState = new TestManagerState();
-            testManagerState.Add(Flags.TestDefaultServiceScopedTwo, true);
-            testManagerState.Add(Flags.TestDefaultServiceScopedThree, false);
-            services.AddSingleton<ITestManagerState>(testManagerState);
-
-            _ = ServiceCollectionExtensionsFixture.AddTestFeatureFlagManager(services);
+            var implementations = ServiceCollectionExtensionsFixture.SetScopedFeatures(
+                services: services,
+                addTestServiceTwo: true,
+                enableTestServiceTwo: true,
+                addTestServiceThree: true,
+                enableTestServiceThree: false
+            );
 
             // Act
             ServiceCollectionExtensions.AddScoped<Features.ITestServiceScoped, Features.TestServiceOneScoped>(
@@ -204,23 +177,13 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Tests.Extensions.Service
         {
             // Arrange
             IServiceCollection services = new ServiceCollection();
-            var implementations = new FeatureFlagWrapper<Features.ITestServiceScoped>[] {
-                new FeatureFlagWrapper<Features.ITestServiceScoped>(
-                    typeof(Features.TestServiceTwoScoped),
-                    Flags.TestDefaultServiceScopedTwo
-                ),
-                new FeatureFlagWrapper<Features.ITestServiceScoped>(
-                    typeof(Features.TestServiceThreeScoped),
-                    Flags.TestDefaultServiceScopedThree
-                )
-            };
-
-            var testManagerState = new TestManagerState();
-            testManagerState.Add(Flags.TestDefaultServiceScopedTwo, false);
-            testManagerState.Add(Flags.TestDefaultServiceScopedThree, true);
-            services.AddSingleton<ITestManagerState>(testManagerState);
-
-            _ = ServiceCollectionExtensionsFixture.AddTestFeatureFlagManager(services);
+            var implementations = ServiceCollectionExtensionsFixture.SetScopedFeatures(
+                services: services,
+                addTestServiceTwo: true,
+                enableTestServiceTwo: false,
+                addTestServiceThree: true,
+                enableTestServiceThree: true
+            );
 
             // Act
             ServiceCollectionExtensions.AddScoped<Features.ITestServiceScoped, Features.TestServiceOneScoped>(
@@ -240,23 +203,13 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Tests.Extensions.Service
         {
             // Arrange
             IServiceCollection services = new ServiceCollection();
-            var implementations = new FeatureFlagWrapper<Features.ITestServiceScoped>[] {
-                new FeatureFlagWrapper<Features.ITestServiceScoped>(
-                    typeof(Features.TestServiceTwoScoped),
-                    Flags.TestDefaultServiceScopedTwo
-                ),
-                new FeatureFlagWrapper<Features.ITestServiceScoped>(
-                    typeof(Features.TestServiceThreeScoped),
-                    Flags.TestDefaultServiceScopedThree
-                )
-            };
-
-            var testManagerState = new TestManagerState();
-            testManagerState.Add(Flags.TestDefaultServiceScopedTwo, true);
-            testManagerState.Add(Flags.TestDefaultServiceScopedThree, true);
-            services.AddSingleton<ITestManagerState>(testManagerState);
-
-            _ = ServiceCollectionExtensionsFixture.AddTestFeatureFlagManager(services);
+            var implementations = ServiceCollectionExtensionsFixture.SetScopedFeatures(
+                services: services,
+                addTestServiceTwo: true,
+                enableTestServiceTwo: true,
+                addTestServiceThree: true,
+                enableTestServiceThree: true
+            );
 
             // Act
             ServiceCollectionExtensions.AddScoped<Features.ITestServiceScoped, Features.TestServiceOneScoped>(
