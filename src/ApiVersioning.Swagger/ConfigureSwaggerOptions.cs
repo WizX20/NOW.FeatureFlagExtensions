@@ -21,6 +21,11 @@ namespace NOW.FeatureFlagExtensions.ApiVersioning.Swagger
                 throw new ArgumentNullException(nameof(provider));
             }
 
+            if (apiVersioningOptions is null)
+            {
+                throw new ArgumentNullException(nameof(apiVersioningOptions));
+            }
+
             _provider = provider;
             _apiVersioningOptions = apiVersioningOptions;
         }
