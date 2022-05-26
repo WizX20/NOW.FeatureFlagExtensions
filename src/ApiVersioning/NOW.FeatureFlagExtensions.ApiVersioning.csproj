@@ -4,7 +4,7 @@
 
   <PropertyGroup>
     <PackageId>$(PackageIdPrefix).ApiVersioning</PackageId>
-    <Version>1.0.0-preview</Version>
+    <Version>$(DebugPackageVersion)</Version>
     <Description>
       This package contains configuration options to set a default Api Version and Api Description properties. Additionally, middleware is provided, to append
       the active Api Version to the Api response headers.

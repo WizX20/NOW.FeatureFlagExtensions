@@ -4,7 +4,7 @@
 
   <PropertyGroup>
     <PackageId>$(PackageIdPrefix).DependencyInjection.Models</PackageId>
-    <Version>1.0.0-preview</Version>
+    <Version>$(DebugPackageVersion)</Version>
     <Description>
       This package contains the base models and collections used by the NOW DependencyInjection packages.
     </Description>

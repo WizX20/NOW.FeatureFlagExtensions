@@ -2,7 +2,7 @@
   
   <PropertyGroup>
 	<PackageIdPrefix>NOW.FeatureFlagExtensions</PackageIdPrefix>
-	<PackageVersionScope>1.*</PackageVersionScope>
+	<DebugPackageVersion>0.0.0-preview00</DebugPackageVersion>
   </PropertyGroup>
   
   <PropertyGroup>
@@ -25,8 +25,11 @@
     <PackageIconUrl>https://github.com/WizX20/NOW.FeatureFlagExtensions/blob/master/res/logo/logo.png</PackageIconUrl>
   </PropertyGroup>
 
-  <PropertyGroup>
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <RepositoryUrl>https://github.com/WizX20/NOW.FeatureFlagExtensions.git</RepositoryUrl>

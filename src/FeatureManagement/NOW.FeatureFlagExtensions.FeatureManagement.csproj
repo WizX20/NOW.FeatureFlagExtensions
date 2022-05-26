@@ -4,7 +4,7 @@
 
   <PropertyGroup>
     <PackageId>$(PackageIdPrefix).FeatureManagement</PackageId>
-    <Version>1.0.0-preview</Version>
+    <Version>$(DebugPackageVersion)</Version>
     <Description>
       This package contains extensions for the 'Microsoft.FeatureManagement' package. It enables additional ways of setting feature-flag behavior
       via the 'appsettings.json' configuration. For example:
