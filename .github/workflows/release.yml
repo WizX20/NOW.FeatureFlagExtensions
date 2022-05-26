@@ -36,8 +36,3 @@ jobs:
       run: dotnet nuget push "*.${VERSION}.nupkg" --source https://api.nuget.org/v3/index.json --api-key ${NUGET_PUBLISH} --skip-duplicate
       env:
         NUGET_PUBLISH: ${{ secrets.NUGET_PUBLISH }}
-    
-    - name: Push Symbol Packages
-      run: dotnet nuget push "*.${VERSION}.snupkg" --source https://api.nuget.org/v3/index.json --api-key ${NUGET_PUBLISH} --skip-duplicate
-      env:
-        NUGET_PUBLISH: ${{ secrets.NUGET_PUBLISH }}
