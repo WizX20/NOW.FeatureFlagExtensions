@@ -1,0 +1,1 @@
+This directory will contain the NuGet packages when the project is built in DEBUG mode (on local environments).

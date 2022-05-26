@@ -196,8 +196,8 @@ PublishScripts/
 *.nupkg
 # NuGet Symbol Packages
 *.snupkg
-# Local packages results from debug builds
-/lib/local-packages/*
+# Include local packages directory in repo: Dependency of build/workflows
+!/lib/local-packages/*.md
 # The packages folder can be ignored because of Package Restore
 **/[Pp]ackages/*
 # except build/, which is used as an MSBuild target
