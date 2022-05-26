@@ -6,6 +6,7 @@
     <CCPackageProps>$([System.IO.Path]::Combine($(CCSourceDirectory), 'build', 'Package.props'))</CCPackageProps>
     <CCTestProjectProps>$([System.IO.Path]::Combine($(CCSourceDirectory), 'build', 'TestProject.props'))</CCTestProjectProps>
     <CCResourceProjectProps>$([System.IO.Path]::Combine($(CCSourceDirectory), 'build', 'ResourceProject.props'))</CCResourceProjectProps>
+	<CCLibraryProjectProps>$([System.IO.Path]::Combine($(CCSourceDirectory), 'build', 'LibraryProject.props'))</CCLibraryProjectProps>
   </PropertyGroup>
 
   <Import Project="$(CCDependenciesProps)" Condition="Exists('$(CCDependenciesProps)')"/>

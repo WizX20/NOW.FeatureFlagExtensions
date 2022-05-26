@@ -5,9 +5,10 @@
 	<PackageVersionScope>1.*</PackageVersionScope>
   </PropertyGroup>
   
-  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+  <PropertyGroup>
+	<GeneratePackageOnBuild Condition="'$(Configuration)'=='Debug'">True</GeneratePackageOnBuild>
+	<GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">False</GeneratePackageOnBuild>
 	<DebugType>embedded</DebugType>
-	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	<PackageOutputPath>..\..\lib\local-packages</PackageOutputPath>
   </PropertyGroup>
   

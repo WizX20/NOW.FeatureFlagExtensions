@@ -1,10 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+  <Import Project="$(CCLibraryProjectProps)" Condition="Exists('$(CCLibraryProjectProps)')" />
 
   <ItemGroup>
     <ProjectReference Include="..\DependencyInjection.Managers\NOW.FeatureFlagExtensions.DependencyInjection.Managers.csproj" />
