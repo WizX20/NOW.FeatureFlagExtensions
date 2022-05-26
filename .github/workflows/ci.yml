@@ -22,17 +22,3 @@ jobs:
 
     - name: Test
       run: dotnet test --configuration Release --no-build
-
-    - name: Publish Artifacts
-      uses: actions/upload-artifact@v3
-      if: ${{ always() }}
-      with:
-        name: Release
-        path: releases
-
-    - name: Publish Test Results
-      uses: actions/upload-artifact@v3
-      if: ${{ always() }}
-      with:
-        name: Test Results
-        path: TestResults
