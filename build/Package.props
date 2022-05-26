@@ -10,7 +10,7 @@
 	  <GeneratePackageOnBuild Condition="'$(Configuration)'=='Debug'">True</GeneratePackageOnBuild>
 	  <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">False</GeneratePackageOnBuild>
 	  <DebugType>embedded</DebugType>
-	  <PackageOutputPath>..\..\lib\local-packages</PackageOutputPath>
+	  <PackageOutputPath Condition="'$(Configuration)'=='Debug'">..\..\lib\local-packages</PackageOutputPath>
   </PropertyGroup>
   
   <PropertyGroup>
@@ -35,8 +35,8 @@
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <RepositoryUrl>https://github.com/WizX20/NOW.FeatureFlagExtensions.git</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <IncludeSymbols Condition="'$(Configuration)'=='Debug'">true</IncludeSymbols>
+    <SymbolPackageFormat Condition="'$(Configuration)'=='Debug'">snupkg</SymbolPackageFormat>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
   
