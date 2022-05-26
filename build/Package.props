@@ -1,15 +1,16 @@
 <Project>
   
   <PropertyGroup>
-	<PackageIdPrefix>NOW.FeatureFlagExtensions</PackageIdPrefix>
-	<DebugPackageVersion>0.0.0-preview00</DebugPackageVersion>
+	  <PackageIdPrefix>NOW.FeatureFlagExtensions</PackageIdPrefix>
+	  <DebugPackageVersion>1.0.0-preview00</DebugPackageVersion>
+    <PackageVersionScope>1.*</PackageVersionScope>
   </PropertyGroup>
   
   <PropertyGroup>
-	<GeneratePackageOnBuild Condition="'$(Configuration)'=='Debug'">True</GeneratePackageOnBuild>
-	<GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">False</GeneratePackageOnBuild>
-	<DebugType>embedded</DebugType>
-	<PackageOutputPath>..\..\lib\local-packages</PackageOutputPath>
+	  <GeneratePackageOnBuild Condition="'$(Configuration)'=='Debug'">True</GeneratePackageOnBuild>
+	  <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">False</GeneratePackageOnBuild>
+	  <DebugType>embedded</DebugType>
+	  <PackageOutputPath>..\..\lib\local-packages</PackageOutputPath>
   </PropertyGroup>
   
   <PropertyGroup>
@@ -40,11 +41,11 @@
   </PropertyGroup>
   
   <ItemGroup>
-	<SourceRoot Include="$(MSBuildThisFileDirectory)/"/>
-	<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
-	  <PrivateAssets>all</PrivateAssets>
-	  <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-	</PackageReference>
+	  <SourceRoot Include="$(MSBuildThisFileDirectory)/"/>
+	  <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+	  </PackageReference>
   </ItemGroup>
 
 </Project>
