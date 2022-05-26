@@ -4,7 +4,7 @@
   
   <PropertyGroup>
     <PackageId>$(PackageIdPrefix).ApiVersioning.Swagger</PackageId>
-    <Version>1.0.0-alpha</Version>
+    <Version>1.0.0-preview</Version>
     <OpenApiGenerateDocuments>false</OpenApiGenerateDocuments>
     <Description>
       This package contains extensions to add a 'Versioned Swagger' and 'Versioned Swagger UI' documentation, 

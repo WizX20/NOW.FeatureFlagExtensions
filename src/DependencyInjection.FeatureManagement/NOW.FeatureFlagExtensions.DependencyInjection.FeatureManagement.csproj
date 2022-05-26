@@ -4,7 +4,7 @@
 
   <PropertyGroup>
     <PackageId>$(PackageIdPrefix).DependencyInjection.FeatureManagement</PackageId>
-    <Version>1.0.0-alpha</Version>
+    <Version>1.0.0-preview</Version>
     <Description>
       This package contains service-collection extensions, to enable 'Microsoft.FeatureManagement' as the default feature manager to be used
       by the 'NOW.FeatureFlagExtensions.DependencyInjection' extensions.
