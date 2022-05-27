@@ -6,7 +6,33 @@
 What if you want to alter, or re-write a (part) of a service, factory, or any other class, that
 is registered in your application via (Microsoft) [Dependency Injection](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection). But, you want to use feature switches/toggles, without having to alter existing code in the class, and without having to restart the running application in order to test the experimental/new code? This question produced this (experimental) project and it's additional libraries.
 
-<br>
+Build Status
+------------
+
+Branch | Status
+--- | :---:
+master | [![master](https://github.com/WizX20/NOW.FeatureFlagExtensions/actions/workflows/ci.yml/badge.svg?branch=master&event=push)](https://github.com/WizX20/NOW.FeatureFlagExtensions/actions/workflows/ci.yml)
+
+NuGet Packages
+---------------------------
+
+| Package Name | .NET 6 |
+| ------------ | :-----------: |
+| **Dependency Injection** |
+| *Main* |
+| [FeatureManagement][NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.nuget] | 1.0 Preview |
+| [Interceptors][NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.nuget] | 1.0 Preview |
+| *Core* |
+| [DependencyInjection][NOW.FeatureFlagExtensions.DependencyInjection.nuget] | 1.0 Preview |
+| [Managers][NOW.FeatureFlagExtensions.DependencyInjection.Managers.nuget] | 1.0 Preview |
+| [Models][NOW.FeatureFlagExtensions.DependencyInjection.Models.nuget] | 1.0 Preview |
+| **Microsoft FeatureManagement** |
+| [FeatureManagement][NOW.FeatureFlagExtensions.FeatureManagement.nuget] | 1.0 Preview |
+| [FeatureManagement.Swagger][NOW.FeatureFlagExtensions.FeatureManagement.Swagger.nuget] | 1.0 Preview |
+| **Api Versioning** |
+| [ApiVersioning][NOW.FeatureFlagExtensions.ApiVersioning.nuget] | 1.0 Preview |
+| [ApiVersioning.Swagger][NOW.FeatureFlagExtensions.ApiVersioning.Swagger.nuget] | 1.0 Preview |
+
 
 # Getting started
 
@@ -62,3 +88,16 @@ A set of extensions and additional filters, that build on the out-of-the-box [Mi
 # Community
 
 This project has adopted the code of conduct defined by the [Contributor Covenant](https://contributor-covenant.org/) to clarify expected behavior in our community. For more information, see the [FeatureFlag Extensions Code of Conduct](docs/CODE_OF_CONDUCT.md).
+
+
+[NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.nuget]: https://www.nuget.org/packages/NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement
+[NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.nuget]: https://www.nuget.org/packages/NOW.FeatureFlagExtensions.DependencyInjection.Interceptors
+[NOW.FeatureFlagExtensions.DependencyInjection.nuget]: https://www.nuget.org/packages/NOW.FeatureFlagExtensions.DependencyInjection
+[NOW.FeatureFlagExtensions.DependencyInjection.Managers.nuget]: https://www.nuget.org/packages/NOW.FeatureFlagExtensions.DependencyInjection.Managers
+[NOW.FeatureFlagExtensions.DependencyInjection.Models.nuget]: https://www.nuget.org/packages/NOW.FeatureFlagExtensions.DependencyInjection.Models
+
+[NOW.FeatureFlagExtensions.FeatureManagement.nuget]: https://www.nuget.org/packages/NOW.FeatureFlagExtensions.FeatureManagement
+[NOW.FeatureFlagExtensions.FeatureManagement.Swagger.nuget]: https://www.nuget.org/packages/NOW.FeatureFlagExtensions.FeatureManagement.Swagger
+
+[NOW.FeatureFlagExtensions.ApiVersioning.nuget]: https://www.nuget.org/packages/NOW.FeatureFlagExtensions.ApiVersioning
+[NOW.FeatureFlagExtensions.ApiVersioning.Swagger.nuget]: https://www.nuget.org/packages/NOW.FeatureFlagExtensions.ApiVersioning.Swagger
