@@ -14,8 +14,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: licensebat
-      uses: licensebat/licensebat-action@v1
+    #- name: licensebat
+    #  uses: licensebat/licensebat-action@v1
+    #  with:
+    #    dependency-file-path: 'package-lock.json'
 
     - name: Restore Dependencies
       run: dotnet restore
