@@ -59,12 +59,23 @@ A set of packages to enable "hot-reload" feature switching via Dependency Inject
         Contains the models used by the core libraries. [read more...](#todo)
 
 - [NOW.FeatureFlagExtensions.DependencyInjection.Interceptors](#todo)<br>
-  An alternative/addition for the `NOW.FeatureFlagExtensions.DependencyInjection` extensions. You can use this one, the other one, or use them both depending on your use case. This package will add the extensions `AddInterceptedScoped`, `AddInterceptedSingleton` and `AddInterceptedTransient`. The extensions depend on the [Castle.Core](https://github.com/castleproject/Core) interceptors to do the heavy lifting. *This will probably add some extra overhead, but no benchmarks have been done yet...* [read more...](#todo)
+  An alternative/addition for the `NOW.FeatureFlagExtensions.DependencyInjection` extensions. You can use this one, the other one, or use them both depending on your use case. This package will add the extensions `AddInterceptedScoped`, `AddInterceptedSingleton` and `AddInterceptedTransient`. The extensions depend on the [Castle.Core](https://github.com/castleproject/Core) interceptors to do the heavy lifting. [read more...](#todo)
     - Depends on:
       - [`NOW.FeatureFlagExtensions.DependencyInjection.Managers`](#todo)<br>
         Contains the abstract class `FeatureFlagManager`, if you want to enable switching via a feature switching/toggle library of your choice. Inherit this class and make it work! [read more...](#todo)
       - [`NOW.FeatureFlagExtensions.DependencyInjection.Models`](#todo)<br>
         Contains the models used by the core libraries. [read more...](#todo)
+
+### Benchmarks
+
+*Vanilla Feature Flag Usage*
+https://github.com/WizX20/NOW.FeatureFlagExtensions/blob/2960670548cdcc938008f493b7f298c9d9f3261c/src/Benchmarks/VanillaInjection/BenchmarkDotNet.Artifacts/results/NOW.FeatureFlagExtensions.Benchmarks.VanillaInjection.Benchmarks-report-github.md?plain=1#L11-L15
+
+*FeatureFlagExtensions (Default) Usage*
+https://github.com/WizX20/NOW.FeatureFlagExtensions/blob/2960670548cdcc938008f493b7f298c9d9f3261c/src/Benchmarks/DefaultInjection/BenchmarkDotNet.Artifacts/results/NOW.FeatureFlagExtensions.Benchmarks.DefaultInjection.Benchmarks-report-github.md?plain=1#L10-L14
+
+*FeatureFlagExtensions Interceptors Usage*
+https://github.com/WizX20/NOW.FeatureFlagExtensions/blob/2960670548cdcc938008f493b7f298c9d9f3261c/src/Benchmarks/InterceptorInjection/BenchmarkDotNet.Artifacts/results/NOW.FeatureFlagExtensions.Benchmarks.InterceptorInjection.Benchmarks-report-github.md?plain=1#L11-L15
 
 ## Microsoft FeatureManagement
 
