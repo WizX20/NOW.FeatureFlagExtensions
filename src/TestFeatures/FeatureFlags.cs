@@ -55,6 +55,10 @@
                     public const string TestDefaultServiceScopedTwo = nameof(TestDefaultServiceScopedTwo);
                     public const string TestDefaultServiceScopedThree = nameof(TestDefaultServiceScopedThree);
 
+                    public const string TestDefaultServiceSingletonOne = nameof(TestDefaultServiceSingletonOne);
+                    public const string TestDefaultServiceSingletonTwo = nameof(TestDefaultServiceSingletonTwo);
+                    public const string TestDefaultServiceSingletonThree = nameof(TestDefaultServiceSingletonThree);
+
                     public const string TestDefaultServiceTransientOne = nameof(TestDefaultServiceTransientOne);
                     public const string TestDefaultServiceTransientTwo = nameof(TestDefaultServiceTransientTwo);
                     public const string TestDefaultServiceTransientThree = nameof(TestDefaultServiceTransientThree);
