@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>NOW.FeatureFlagExtensions.Benchmarks.DefaultInjection.Benchmarks-20220702-172831</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.13.1, OS=Windows 10.0.22000
+Intel Core i9-9880H CPU 2.30GHz, 1 CPU, 16 logical and 8 physical cores
+.NET SDK=6.0.300
+  [Host]     : .NET 6.0.5 (6.0.522.21309), X64 RyuJIT
+  DefaultJob : .NET 6.0.5 (6.0.522.21309), X64 RyuJIT
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>           Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Rank</th><th>Gen 0</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>GetTestServiceScoped</td><td>27.81 ns</td><td>0.258 ns</td><td>0.241 ns</td><td>1</td><td>-</td><td>-</td>
+</tr><tr><td>GetTestServiceTransient</td><td>627.39 ns</td><td>7.377 ns</td><td>6.160 ns</td><td>2</td><td>0.1059</td><td>888 B</td>
+</tr></tbody></table>
+</body>
+</html>

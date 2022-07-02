@@ -28,10 +28,10 @@
   </ItemGroup>
     
   <ItemGroup>
-	<ProjectReference Include="..\DependencyInjection.FeatureManagement\NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.csproj" />
-	<ProjectReference Include="..\DependencyInjection.Interceptors\NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.csproj" />
-	<ProjectReference Include="..\FeatureManagement\NOW.FeatureFlagExtensions.FeatureManagement.csproj" />
-	<ProjectReference Include="..\TestFeatures\TestFeatures.csproj" />
+	<ProjectReference Include="..\..\DependencyInjection.FeatureManagement\NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.csproj" />
+	<ProjectReference Include="..\..\FeatureManagement\NOW.FeatureFlagExtensions.FeatureManagement.csproj" />
+	<ProjectReference Include="..\..\TestFeatures\TestFeatures.csproj" />
+	<ProjectReference Include="..\Common\NOW.FeatureFlagExtensions.Benchmarks.Common.csproj" />
   </ItemGroup>
 
 </Project>
