@@ -2,7 +2,7 @@
   
   <PropertyGroup>
 	  <PackageIdPrefix>NOW.FeatureFlagExtensions</PackageIdPrefix>
-	  <DebugPackageVersion>1.0.1-preview00</DebugPackageVersion>
+	  <DebugPackageVersion>1.0.1-preview</DebugPackageVersion>
     <PackageVersionScope>1.*</PackageVersionScope>
   </PropertyGroup>
   
