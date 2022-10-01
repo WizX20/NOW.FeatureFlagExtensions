@@ -16,7 +16,7 @@
   </ItemGroup>
     
   <ItemGroup>
-    <PackageReference Include="Castle.Core" Version="4.4.1" />
+    <PackageReference Include="Castle.Core" Version="5.1.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
     <PackageReference Include="NOW.FeatureFlagExtensions.DependencyInjection.Managers" Version="$(PackageVersionScope)" NoWarn="NU1603" />
     <PackageReference Include="NOW.FeatureFlagExtensions.DependencyInjection.Models" Version="$(PackageVersionScope)" NoWarn="NU1603" />
@@ -25,6 +25,13 @@
   <ItemGroup>
     <ProjectReference Include="..\DependencyInjection.Managers\NOW.FeatureFlagExtensions.DependencyInjection.Managers.csproj" />
     <ProjectReference Include="..\DependencyInjection.Models\NOW.FeatureFlagExtensions.DependencyInjection.Models.csproj" />
+  </ItemGroup>
+    
+  <ItemGroup>
+    <PackageReference Update="Roslynator.Analyzers" Version="4.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>

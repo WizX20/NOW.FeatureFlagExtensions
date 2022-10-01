@@ -24,5 +24,12 @@
     <ProjectReference Include="..\DependencyInjection.Managers\NOW.FeatureFlagExtensions.DependencyInjection.Managers.csproj" />
     <ProjectReference Include="..\DependencyInjection.Models\NOW.FeatureFlagExtensions.DependencyInjection.Models.csproj" />
   </ItemGroup>
+    
+  <ItemGroup>
+    <PackageReference Update="Roslynator.Analyzers" Version="4.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 
 </Project>

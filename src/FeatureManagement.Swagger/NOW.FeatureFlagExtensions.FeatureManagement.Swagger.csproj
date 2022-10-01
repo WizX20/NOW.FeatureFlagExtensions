@@ -18,12 +18,19 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.FeatureManagement" Version="2.5.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.4.0" />
     <PackageReference Include="NOW.FeatureFlagExtensions.FeatureManagement" Version="$(PackageVersionScope)" NoWarn="NU1603" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\FeatureManagement\NOW.FeatureFlagExtensions.FeatureManagement.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Roslynator.Analyzers" Version="4.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>

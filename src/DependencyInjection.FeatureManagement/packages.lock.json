@@ -36,9 +36,9 @@
       },
       "Roslynator.Analyzers": {
         "type": "Direct",
-        "requested": "[4.1.0, )",
-        "resolved": "4.1.0",
-        "contentHash": "xTSs7KdwhIUOTqEubcfW043o0dpSjKpNF+C6Aj5OuJv69rVJ0ypjChNeeXRALB2I1S9W1+qmgbVWYg7qftgoCA=="
+        "requested": "[4.1.1, )",
+        "resolved": "4.1.1",
+        "contentHash": "3cPVlrB1PytlO1ztZZBOExDKQWpMZgI15ZDa0BqLu0l6xv+xIRfEpqjNRcpvUy3aLxWTkPgSKZbbaO+VoFEJ1g=="
       },
       "Microsoft.Build.Tasks.Git": {
         "type": "Transitive",
@@ -121,21 +121,21 @@
       "now.featureflagextensions.dependencyinjection": {
         "type": "Project",
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
-          "NOW.FeatureFlagExtensions.DependencyInjection.Managers": "1.0.0-preview00",
-          "NOW.FeatureFlagExtensions.DependencyInjection.Models": "1.0.0-preview00"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "[6.0.0, )",
+          "NOW.FeatureFlagExtensions.DependencyInjection.Managers": "[1.0.0-preview00, )",
+          "NOW.FeatureFlagExtensions.DependencyInjection.Models": "[1.0.0-preview00, )"
         }
       },
       "now.featureflagextensions.dependencyinjection.managers": {
         "type": "Project",
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "[6.0.0, )"
         }
       },
       "now.featureflagextensions.dependencyinjection.models": {
         "type": "Project",
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "[6.0.0, )"
         }
       }
     }
