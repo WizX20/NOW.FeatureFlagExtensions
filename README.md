@@ -20,18 +20,18 @@ NuGet Packages
 | ------------ | :-----------: |
 | **Dependency Injection** |
 | *Main* |
-| [FeatureManagement][NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.nuget] | 1.0 Preview |
-| [Interceptors][NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.nuget] | 1.0 Preview |
+| [FeatureManagement][NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.nuget] | 1.1.0 Preview |
+| [Interceptors][NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.nuget] | 1.1.0 Preview |
 | *Core* |
-| [DependencyInjection][NOW.FeatureFlagExtensions.DependencyInjection.nuget] | 1.0 Preview |
-| [Managers][NOW.FeatureFlagExtensions.DependencyInjection.Managers.nuget] | 1.0 Preview |
-| [Models][NOW.FeatureFlagExtensions.DependencyInjection.Models.nuget] | 1.0 Preview |
+| [DependencyInjection][NOW.FeatureFlagExtensions.DependencyInjection.nuget] | 1.1.0 Preview |
+| [Managers][NOW.FeatureFlagExtensions.DependencyInjection.Managers.nuget] | 1.1.0 Preview |
+| [Models][NOW.FeatureFlagExtensions.DependencyInjection.Models.nuget] | 1.1.0 Preview |
 | **Microsoft FeatureManagement** |
-| [FeatureManagement][NOW.FeatureFlagExtensions.FeatureManagement.nuget] | 1.0 Preview |
-| [FeatureManagement.Swagger][NOW.FeatureFlagExtensions.FeatureManagement.Swagger.nuget] | 1.0 Preview |
+| [FeatureManagement][NOW.FeatureFlagExtensions.FeatureManagement.nuget] | 1.1.0 Preview |
+| [FeatureManagement.Swagger][NOW.FeatureFlagExtensions.FeatureManagement.Swagger.nuget] | 1.1.0 Preview |
 | **Api Versioning** |
-| [ApiVersioning][NOW.FeatureFlagExtensions.ApiVersioning.nuget] | 1.0 Preview |
-| [ApiVersioning.Swagger][NOW.FeatureFlagExtensions.ApiVersioning.Swagger.nuget] | 1.0 Preview |
+| [ApiVersioning][NOW.FeatureFlagExtensions.ApiVersioning.nuget] | 1.1.0 Preview |
+| [ApiVersioning.Swagger][NOW.FeatureFlagExtensions.ApiVersioning.Swagger.nuget] | 1.1.0 Preview |
 
 
 # Getting started
