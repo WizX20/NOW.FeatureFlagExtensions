@@ -61,27 +61,27 @@ namespace FeatureTestApplication.Controllers.v1_1
 
             foreach (var service in _defaultTestServicesScoped)
             {
-                names.Add($"default test service scoped: {service.Name}");
+                names.Add($"default test service scoped: {service.Name} -> {service.GetType()}");
             }
 
             foreach (var service in _defaultTestServicesTransient)
             {
-                names.Add($"default test service transient: {service.Name}");
+                names.Add($"default test service transient: {service.Name} -> {service.GetType()}");
             }
 
             foreach (var service in _interceptedTestServicesScoped)
             {
-                names.Add($"intercepted test service scoped: {service.Name}");
+                names.Add($"intercepted test service scoped: {service.Name} -> {service.GetType()}");
             }
 
             foreach (var service in _interceptedTestServicesSingleton)
             {
-                names.Add($"intercepted test service singleton: {service.Name}");
+                names.Add($"intercepted test service singleton: {service.Name} -> {service.GetType()}");
             }
 
             foreach (var service in _interceptedTestServicesTransient)
             {
-                names.Add($"intercepted test service transient: {service.Name}");
+                names.Add($"intercepted test service transient: {service.Name} -> {service.GetType()}");
             }
 
             return Ok(names);
