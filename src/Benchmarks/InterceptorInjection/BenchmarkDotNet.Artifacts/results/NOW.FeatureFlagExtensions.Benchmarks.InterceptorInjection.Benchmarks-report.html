@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>NOW.FeatureFlagExtensions.Benchmarks.InterceptorInjection.Benchmarks-20220702-183137</title>
+<title>NOW.FeatureFlagExtensions.Benchmarks.InterceptorInjection.Benchmarks-20221002-010936</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,20 +13,20 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet=v0.13.1, OS=Windows 10.0.22000
+BenchmarkDotNet=v0.13.2, OS=Windows 11 (10.0.22000.978/21H2)
 Intel Core i9-9880H CPU 2.30GHz, 1 CPU, 16 logical and 8 physical cores
-.NET SDK=6.0.300
-  [Host]     : .NET 6.0.5 (6.0.522.21309), X64 RyuJIT
-  DefaultJob : .NET 6.0.5 (6.0.522.21309), X64 RyuJIT
+.NET SDK=6.0.401
+  [Host]     : .NET 6.0.9 (6.0.922.41905), X64 RyuJIT AVX2
+  DefaultJob : .NET 6.0.9 (6.0.922.41905), X64 RyuJIT AVX2
 </code></pre>
 <pre><code></code></pre>
 
 <table>
-<thead><tr><th>           Method</th><th> Mean</th><th>Error</th><th>StdDev</th><th>Rank</th><th>Gen 0</th><th>Allocated</th>
+<thead><tr><th>           Method</th><th> Mean</th><th>Error</th><th>StdDev</th><th>Rank</th><th>Gen0</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>GetTestServiceSingleton</td><td>26.92 ns</td><td>0.094 ns</td><td>0.083 ns</td><td>1</td><td>-</td><td>-</td>
-</tr><tr><td>GetTestServiceScoped</td><td>29.03 ns</td><td>0.351 ns</td><td>0.328 ns</td><td>2</td><td>-</td><td>-</td>
-</tr><tr><td>GetTestServiceTransient</td><td>1,245.65 ns</td><td>13.712 ns</td><td>12.826 ns</td><td>3</td><td>0.1335</td><td>1,120 B</td>
+</thead><tbody><tr><td>GetTestServiceSingleton</td><td>24.94 ns</td><td>0.129 ns</td><td>0.121 ns</td><td>1</td><td>-</td><td>-</td>
+</tr><tr><td>GetTestServiceScoped</td><td>27.80 ns</td><td>0.220 ns</td><td>0.195 ns</td><td>2</td><td>-</td><td>-</td>
+</tr><tr><td>GetTestServiceTransient</td><td>1,790.26 ns</td><td>24.408 ns</td><td>19.056 ns</td><td>3</td><td>0.2613</td><td>2192 B</td>
 </tr></tbody></table>
 </body>
 </html>
