@@ -19,26 +19,20 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.Extensions
 
             RegisterRequiredServices(services);
 
-            // Register default implementation.
+            // Register default implementations.
             MicrosoftDependencyInjection.AddScoped<TImplementation>(services);
-            MicrosoftDependencyInjection.AddScoped<TService, TImplementation>(services);
-            MicrosoftDependencyInjection.AddScoped(services, provider =>
-            {
-                implementations.StoreInServiceImplementationTypesCollection(provider);
-
-                return provider.GetInterfaceProxyWithTarget<TService, TImplementation>();
-            });
-
-            // Register feature implementations.
-            var serviceType = typeof(TService);
             foreach (var implementation in implementations)
             {
                 MicrosoftDependencyInjection.AddScoped(services, implementation.ImplementationType);
-                MicrosoftDependencyInjection.AddScoped(services, serviceType, implementation.ImplementationType);
-                MicrosoftDependencyInjection.AddScoped(services, serviceType, provider => {
-                    return provider.GetInterfaceProxyWithTarget<TService>(implementation.ImplementationType);
-                });
             }
+
+            // Register Proxy.
+            MicrosoftDependencyInjection.AddScoped(services, typeof(TService), provider =>
+            {
+                implementations.StoreInServiceImplementationTypesCollection(provider);
+
+                return provider.GetInterfaceProxyWithTarget<TService>(typeof(TImplementation));
+            });
 
             return services;
         }
@@ -53,26 +47,20 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.Extensions
 
             RegisterRequiredServices(services);
 
-            // Register default implementation.
+            // Register default implementations.
             MicrosoftDependencyInjection.AddSingleton<TImplementation>(services);
-            MicrosoftDependencyInjection.AddSingleton<TService, TImplementation>(services);
-            MicrosoftDependencyInjection.AddSingleton(services, provider =>
-            {
-                implementations.StoreInServiceImplementationTypesCollection(provider);
-
-                return provider.GetInterfaceProxyWithTarget<TService, TImplementation>();
-            });
-
-            // Register feature implementations.
-            var serviceType = typeof(TService);
             foreach (var implementation in implementations)
             {
                 MicrosoftDependencyInjection.AddSingleton(services, implementation.ImplementationType);
-                MicrosoftDependencyInjection.AddSingleton(services, serviceType, implementation.ImplementationType);
-                MicrosoftDependencyInjection.AddSingleton(services, serviceType, provider => {
-                    return provider.GetInterfaceProxyWithTarget<TService>(implementation.ImplementationType);
-                });
             }
+
+            // Register Proxy.
+            MicrosoftDependencyInjection.AddSingleton(services, typeof(TService), provider =>
+            {
+                implementations.StoreInServiceImplementationTypesCollection(provider);
+
+                return provider.GetInterfaceProxyWithTarget<TService>(typeof(TImplementation));
+            });
 
             return services;
         }
@@ -87,26 +75,20 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.Extensions
 
             RegisterRequiredServices(services);
 
-            // Register default implementation.
+            // Register default implementations.
             MicrosoftDependencyInjection.AddTransient<TImplementation>(services);
-            MicrosoftDependencyInjection.AddTransient<TService, TImplementation>(services);
-            MicrosoftDependencyInjection.AddTransient(services, provider =>
-            {
-                implementations.StoreInServiceImplementationTypesCollection(provider);
-
-                return provider.GetInterfaceProxyWithTarget<TService, TImplementation>();
-            });
-
-            // Register feature implementations.
-            var serviceType = typeof(TService);
             foreach (var implementation in implementations)
             {
                 MicrosoftDependencyInjection.AddTransient(services, implementation.ImplementationType);
-                MicrosoftDependencyInjection.AddTransient(services, serviceType, implementation.ImplementationType);
-                MicrosoftDependencyInjection.AddTransient(services, serviceType, provider => {
-                    return provider.GetInterfaceProxyWithTarget<TService>(implementation.ImplementationType);
-                });
             }
+
+            // Register Proxy.
+            MicrosoftDependencyInjection.AddTransient(services, typeof(TService), provider =>
+            {
+                implementations.StoreInServiceImplementationTypesCollection(provider);
+
+                return provider.GetInterfaceProxyWithTarget<TService>(typeof(TImplementation));
+            });
 
             return services;
         }

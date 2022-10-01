@@ -43,11 +43,9 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Interceptors
                         invocation.Proceed();
                         return;
                     }
-                    else
-                    {
-                        InvokeType(invocation, implementationType);
-                        return;
-                    }
+
+                    InvokeType(invocation, implementationType);
+                    return;
                 }
             }
 
