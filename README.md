@@ -69,13 +69,13 @@ A set of packages to enable "hot-reload" feature switching via Dependency Inject
 ### Benchmarks
 
 *Vanilla Feature Flag Usage*
-https://github.com/WizX20/NOW.FeatureFlagExtensions/blob/2960670548cdcc938008f493b7f298c9d9f3261c/src/Benchmarks/VanillaInjection/BenchmarkDotNet.Artifacts/results/NOW.FeatureFlagExtensions.Benchmarks.VanillaInjection.Benchmarks-report-github.md?plain=1#L11-L15
+https://github.com/WizX20/NOW.FeatureFlagExtensions/blob/master/src/Benchmarks/VanillaInjection/BenchmarkDotNet.Artifacts/results/NOW.FeatureFlagExtensions.Benchmarks.VanillaInjection.Benchmarks-report-github.md?plain=1#L11-L15
 
 *FeatureFlagExtensions (Default) Usage*
-https://github.com/WizX20/NOW.FeatureFlagExtensions/blob/2960670548cdcc938008f493b7f298c9d9f3261c/src/Benchmarks/DefaultInjection/BenchmarkDotNet.Artifacts/results/NOW.FeatureFlagExtensions.Benchmarks.DefaultInjection.Benchmarks-report-github.md?plain=1#L10-L14
+https://github.com/WizX20/NOW.FeatureFlagExtensions/blob/master/src/Benchmarks/DefaultInjection/BenchmarkDotNet.Artifacts/results/NOW.FeatureFlagExtensions.Benchmarks.DefaultInjection.Benchmarks-report-github.md?plain=1#L11-L14
 
 *FeatureFlagExtensions Interceptors Usage*
-https://github.com/WizX20/NOW.FeatureFlagExtensions/blob/2960670548cdcc938008f493b7f298c9d9f3261c/src/Benchmarks/InterceptorInjection/BenchmarkDotNet.Artifacts/results/NOW.FeatureFlagExtensions.Benchmarks.InterceptorInjection.Benchmarks-report-github.md?plain=1#L11-L15
+https://github.com/WizX20/NOW.FeatureFlagExtensions/blob/master/src/Benchmarks/InterceptorInjection/BenchmarkDotNet.Artifacts/results/NOW.FeatureFlagExtensions.Benchmarks.InterceptorInjection.Benchmarks-report-github.md?plain=1#L11-L15
 
 ## Microsoft FeatureManagement
 
