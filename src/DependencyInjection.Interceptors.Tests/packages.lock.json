@@ -1256,8 +1256,8 @@
         "type": "Project",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "[6.0.0, )",
-          "NOW.FeatureFlagExtensions.DependencyInjection.Managers": "[1.0.0-preview00, )",
-          "NOW.FeatureFlagExtensions.DependencyInjection.Models": "[1.0.0-preview00, )"
+          "NOW.FeatureFlagExtensions.DependencyInjection.Managers": "[1.0.1-preview00, )",
+          "NOW.FeatureFlagExtensions.DependencyInjection.Models": "[1.0.1-preview00, )"
         }
       },
       "now.featureflagextensions.dependencyinjection.interceptors": {
@@ -1265,8 +1265,8 @@
         "dependencies": {
           "Castle.Core": "[5.1.0, )",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "[6.0.0, )",
-          "NOW.FeatureFlagExtensions.DependencyInjection.Managers": "[1.0.0-preview00, )",
-          "NOW.FeatureFlagExtensions.DependencyInjection.Models": "[1.0.0-preview00, )"
+          "NOW.FeatureFlagExtensions.DependencyInjection.Managers": "[1.0.1-preview00, )",
+          "NOW.FeatureFlagExtensions.DependencyInjection.Models": "[1.0.1-preview00, )"
         }
       },
       "now.featureflagextensions.dependencyinjection.managers": {
@@ -1284,7 +1284,7 @@
       "testfeatureflagmanager": {
         "type": "Project",
         "dependencies": {
-          "NOW.FeatureFlagExtensions.DependencyInjection.Managers": "[1.0.0-preview00, )"
+          "NOW.FeatureFlagExtensions.DependencyInjection.Managers": "[1.0.1-preview00, )"
         }
       },
       "testfeatures": {
