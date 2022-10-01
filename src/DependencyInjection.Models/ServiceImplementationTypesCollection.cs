@@ -30,8 +30,7 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Models
         public KeyValuePair<Type, IEnumerable<(Type ImplementationType, string Feature)>> GetServiceTypeAssignableFrom(Type implementationType)
         {
             return _serviceImplementationTypes
-                .Where(t => t.Key.IsAssignableFrom(implementationType))
-                .SingleOrDefault();
+                .SingleOrDefault(t => t.Key.IsAssignableFrom(implementationType));
         }
 
         public void AddOrUpdate(Type serviceType, Type implementationType, string feature)
@@ -49,7 +48,8 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Models
 
                     if (!hasExistingImplementationType)
                     {
-                        newImplementationTypes.Add((implementationType, feature));
+                        // Make sure the last service added is the first one found.
+                        newImplementationTypes.Insert(0, (implementationType, feature));
                     }
 
                     return newImplementationTypes;
