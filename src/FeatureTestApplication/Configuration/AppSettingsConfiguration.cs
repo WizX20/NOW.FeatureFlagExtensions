@@ -1,4 +1,4 @@
-﻿using NOW.FeatureFlagExtensions.ApiVersioning.Configuration;
+﻿using NOW.ApiVersioning.Configuration;
 
 namespace FeatureTestApplication.Configuration
 {
