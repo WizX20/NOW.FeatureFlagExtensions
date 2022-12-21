@@ -1,48 +1,48 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-	<TargetFramework>net6.0</TargetFramework>
-	<Nullable>enable</Nullable>
-	<ImplicitUsings>enable</ImplicitUsings>
-	<UserSecretsId>f1a6162a-e16d-47cb-8af7-acb9c5942ca0</UserSecretsId>
-	<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-	<IsPackable>false</IsPackable>
+		<TargetFramework>net7.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>f1a6162a-e16d-47cb-8af7-acb9c5942ca0</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
-	<None Include="..\..\.editorconfig" Link=".editorconfig" />
+		<None Include="..\..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 
   <ItemGroup>
-	<PackageReference Include="Ardalis.ListStartupServices" Version="1.1.4" />
-	<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
-	<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
-	<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-	<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
-	<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0">
-	  <PrivateAssets>all</PrivateAssets>
-	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-	</PackageReference>
-	<PackageReference Include="Roslynator.Analyzers" Version="4.1.1">
-	  <PrivateAssets>all</PrivateAssets>
-	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-	</PackageReference>
+		<PackageReference Include="Ardalis.ListStartupServices" Version="1.1.4" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+		<PackageReference Include="NOW.ApiVersioning" Version="1.0.1-preview" />
+		<PackageReference Include="NOW.ApiVersioning.Swagger" Version="1.0.1-preview" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
+		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Roslynator.Analyzers" Version="4.2.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
   </ItemGroup>
 
   <ItemGroup>
-	<ProjectReference Include="..\ApiVersioning.Swagger\NOW.FeatureFlagExtensions.ApiVersioning.Swagger.csproj" />
-	<ProjectReference Include="..\ApiVersioning\NOW.FeatureFlagExtensions.ApiVersioning.csproj" />
-	<ProjectReference Include="..\DependencyInjection.FeatureManagement\NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.csproj" />
-	<ProjectReference Include="..\DependencyInjection.Interceptors\NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.csproj" />
-	<ProjectReference Include="..\FeatureManagement.Swagger\NOW.FeatureFlagExtensions.FeatureManagement.Swagger.csproj" />
-	<ProjectReference Include="..\FeatureManagement\NOW.FeatureFlagExtensions.FeatureManagement.csproj" />
-	<ProjectReference Include="..\TestFeatures\TestFeatures.csproj" />
+		<ProjectReference Include="..\DependencyInjection.FeatureManagement\NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.csproj" />
+		<ProjectReference Include="..\DependencyInjection.Interceptors\NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.csproj" />
+		<ProjectReference Include="..\FeatureManagement.Swagger\NOW.FeatureFlagExtensions.FeatureManagement.Swagger.csproj" />
+		<ProjectReference Include="..\FeatureManagement\NOW.FeatureFlagExtensions.FeatureManagement.csproj" />
+		<ProjectReference Include="..\TestFeatures\TestFeatures.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-	<None Update="Robots.txt">
-	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	</None>
+		<None Update="Robots.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
   </ItemGroup>
 
 </Project>

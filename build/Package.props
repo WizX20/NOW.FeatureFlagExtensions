@@ -2,7 +2,7 @@
   
   <PropertyGroup>
 	  <PackageIdPrefix>NOW.FeatureFlagExtensions</PackageIdPrefix>
-	  <DebugPackageVersion>1.0.1-preview</DebugPackageVersion>
+	  <DebugPackageVersion>1.1.0-preview</DebugPackageVersion>
     <PackageVersionScope>1.*</PackageVersionScope>
   </PropertyGroup>
   
@@ -18,12 +18,12 @@
     <Authors>WizX20 and contributors</Authors>
     <Company>Nerds On Waves</Company>
     <Copyright>Copyright © $(Company) $([System.DateTime]::Now.Year)</Copyright>
-    <PackageLicenseUrl>https://github.com/WizX20/NOW.FeatureFlagExtensions/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/WizX20/NOW.FeatureFlagExtensions</PackageProjectUrl>
     <PackageReleaseNotes>Release notes: https://github.com/WizX20/NOW.FeatureFlagExtensions/releases/$(Version)</PackageReleaseNotes>
-    <PackageTags>NOW FeatureFlag FeatureToggle FeatureFlagExtensions Container DependencyInjection Versioning API .Net Swagger</PackageTags>
+    <PackageTags>NOW FeatureFlag FeatureToggle FeatureFlagExtensions Container DependencyInjection API .Net Swagger</PackageTags>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageIconUrl>https://github.com/WizX20/NOW.FeatureFlagExtensions/blob/master/res/logo/logo.png</PackageIconUrl>
+    <PackageIcon>logo.png</PackageIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
@@ -39,7 +39,13 @@
     <SymbolPackageFormat Condition="'$(Configuration)'=='Debug'">snupkg</SymbolPackageFormat>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
-  
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE" Pack="true" PackagePath=""/>
+    <None Include="..\..\res\logo\logo.png" Pack="true" PackagePath=""/>
+  </ItemGroup>
+
+
   <ItemGroup>
 	  <SourceRoot Include="$(MSBuildThisFileDirectory)/"/>
 	  <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">

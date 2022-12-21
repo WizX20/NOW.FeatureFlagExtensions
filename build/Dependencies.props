@@ -1,9 +1,9 @@
 <Project>
   
   <PropertyGroup Label="Framework Versions">
-    <ResourceProjectTargetFrameworks>net6.0</ResourceProjectTargetFrameworks>
-	<LibraryProjectTargetFrameworks>net6.0</LibraryProjectTargetFrameworks>
-    <TestProjectTargetFrameworks>net6.0</TestProjectTargetFrameworks>
+    <ResourceProjectTargetFrameworks>net7.0</ResourceProjectTargetFrameworks>
+	<LibraryProjectTargetFrameworks>net7.0</LibraryProjectTargetFrameworks>
+    <TestProjectTargetFrameworks>net7.0</TestProjectTargetFrameworks>
   </PropertyGroup>
   
 </Project>
