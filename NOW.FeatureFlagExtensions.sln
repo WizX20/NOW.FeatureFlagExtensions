@@ -17,6 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solutio
 		Directory.Build.targets = Directory.Build.targets
 		LICENSE = LICENSE
 		NuGet.config = NuGet.config
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement", "src\DependencyInjection.FeatureManagement\NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.csproj", "{61D65F03-A24D-4B00-9CBE-63BDF7392FC0}"
