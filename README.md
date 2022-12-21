@@ -6,6 +6,8 @@
 What if you want to alter, or re-write a (part) of a service, factory, or any other class, that
 is registered in your application via (Microsoft) [Dependency Injection](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection). But, you want to use feature switches/toggles, without having to alter existing code in the class, and without having to restart the running application in order to test the experimental/new code? This question produced this (experimental) project and it's additional libraries.
 
+https://github.com/WizX20/NOW.FeatureFlagExtensions/blob/dffd71a1813195243108c9329d9a4124ab27716f/src/FeatureTestApplication/Program.cs#L115-L128
+
 Build Status
 ------------
 
