@@ -16,22 +16,19 @@ master | [![master](https://github.com/WizX20/NOW.FeatureFlagExtensions/actions/
 NuGet Packages
 ---------------------------
 
-| Package Name | .NET 6 |
+| Package Name | .NET 7 |
 | ------------ | :-----------: |
 | **Dependency Injection** |
 | *Main* |
-| [FeatureManagement][NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.nuget] | 1.1.0 Preview |
-| [Interceptors][NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.nuget] | 1.1.0 Preview |
+| [FeatureManagement][NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.nuget] | 1.2.0 Preview |
+| [Interceptors][NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.nuget] | 1.2.0 Preview |
 | *Core* |
-| [DependencyInjection][NOW.FeatureFlagExtensions.DependencyInjection.nuget] | 1.1.0 Preview |
-| [Managers][NOW.FeatureFlagExtensions.DependencyInjection.Managers.nuget] | 1.1.0 Preview |
-| [Models][NOW.FeatureFlagExtensions.DependencyInjection.Models.nuget] | 1.1.0 Preview |
+| [DependencyInjection][NOW.FeatureFlagExtensions.DependencyInjection.nuget] | 1.2.0 Preview |
+| [Managers][NOW.FeatureFlagExtensions.DependencyInjection.Managers.nuget] | 1.2.0 Preview |
+| [Models][NOW.FeatureFlagExtensions.DependencyInjection.Models.nuget] | 1.2.0 Preview |
 | **Microsoft FeatureManagement** |
-| [FeatureManagement][NOW.FeatureFlagExtensions.FeatureManagement.nuget] | 1.1.0 Preview |
-| [FeatureManagement.Swagger][NOW.FeatureFlagExtensions.FeatureManagement.Swagger.nuget] | 1.1.0 Preview |
-| **Api Versioning** |
-| [ApiVersioning][NOW.FeatureFlagExtensions.ApiVersioning.nuget] | 1.1.0 Preview |
-| [ApiVersioning.Swagger][NOW.FeatureFlagExtensions.ApiVersioning.Swagger.nuget] | 1.1.0 Preview |
+| [FeatureManagement][NOW.FeatureFlagExtensions.FeatureManagement.nuget] | 1.2.0 Preview |
+| [FeatureManagement.Swagger][NOW.FeatureFlagExtensions.FeatureManagement.Swagger.nuget] | 1.2.0 Preview |
 
 
 # Getting started
@@ -77,6 +74,7 @@ https://github.com/WizX20/NOW.FeatureFlagExtensions/blob/2ac0c7d188aa6f93ff0b93c
 *FeatureFlagExtensions Interceptors Usage*
 https://github.com/WizX20/NOW.FeatureFlagExtensions/blob/2ac0c7d188aa6f93ff0b93c7d3092e6debcf2dd8/src/Benchmarks/InterceptorInjection/BenchmarkDotNet.Artifacts/results/NOW.FeatureFlagExtensions.Benchmarks.InterceptorInjection.Benchmarks-report-github.md?plain=1#L11-L15
 
+
 ## Microsoft FeatureManagement
 
 A set of extensions and additional filters, that build on the out-of-the-box [Microsoft FeatureManagement](https://github.com/microsoft/FeatureManagement-Dotnet) configuration.
@@ -87,18 +85,10 @@ A set of extensions and additional filters, that build on the out-of-the-box [Mi
   - [NOW.FeatureFlagExtensions.FeatureManagement.Swagger](#todo)<br>
     Adds a `FeatureFilterHeaderParameter` for swagger, to enable easy feature switching via dropdown(s), that is (are) populated with all available feature switches. [read more...](#todo)
 
-## Api Versioning
-
-- [NOW.FeatureFlagExtensions.ApiVersioning](src/ApiVersioning/README.md)<br>
-  Simplifies setup and configuration for API Version behavior with `Microsoft.AspNetCore.Mvc.Versioning`. The middleware provided combines path (_URL_), query-string and header version-readers. [read more...](src/ApiVersioning/README.md)
-
-- [NOW.FeatureFlagExtensions.ApiVersioning.Swagger](src/ApiVersioning.Swagger/README.md)<br>
-  This package contains extensions to add a 'Versioned Swagger' and 'Versioned Swagger UI' documentation, using the `NOW.FeatureFlagExtensions.ApiVersioning` package. [read more...](src/ApiVersioning.Swagger/README.md)
-
 
 # Community
 
-This project has adopted the code of conduct defined by the [Contributor Covenant](https://contributor-covenant.org/) to clarify expected behavior in our community. For more information, see the [FeatureFlag Extensions Code of Conduct](docs/CODE_OF_CONDUCT.md).
+This project has adopted the code of conduct defined by the [Contributor Covenant](https://contributor-covenant.org/) to clarify expected behavior in our community. For more information, see the [Code of Conduct](docs/CODE_OF_CONDUCT.md).
 
 
 [NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.nuget]: https://www.nuget.org/packages/NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement
@@ -109,6 +99,3 @@ This project has adopted the code of conduct defined by the [Contributor Covenan
 
 [NOW.FeatureFlagExtensions.FeatureManagement.nuget]: https://www.nuget.org/packages/NOW.FeatureFlagExtensions.FeatureManagement
 [NOW.FeatureFlagExtensions.FeatureManagement.Swagger.nuget]: https://www.nuget.org/packages/NOW.FeatureFlagExtensions.FeatureManagement.Swagger
-
-[NOW.FeatureFlagExtensions.ApiVersioning.nuget]: https://www.nuget.org/packages/NOW.FeatureFlagExtensions.ApiVersioning
-[NOW.FeatureFlagExtensions.ApiVersioning.Swagger.nuget]: https://www.nuget.org/packages/NOW.FeatureFlagExtensions.ApiVersioning.Swagger

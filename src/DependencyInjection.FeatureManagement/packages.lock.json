@@ -122,8 +122,8 @@
         "type": "Project",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "[7.0.0, )",
-          "NOW.FeatureFlagExtensions.DependencyInjection.Managers": "[1.1.0-preview, )",
-          "NOW.FeatureFlagExtensions.DependencyInjection.Models": "[1.1.0-preview, )"
+          "NOW.FeatureFlagExtensions.DependencyInjection.Managers": "[1.2.0-preview, )",
+          "NOW.FeatureFlagExtensions.DependencyInjection.Models": "[1.2.0-preview, )"
         }
       },
       "now.featureflagextensions.dependencyinjection.managers": {

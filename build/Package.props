@@ -2,7 +2,7 @@
   
   <PropertyGroup>
 	  <PackageIdPrefix>NOW.FeatureFlagExtensions</PackageIdPrefix>
-	  <DebugPackageVersion>1.1.0-preview</DebugPackageVersion>
+	  <DebugPackageVersion>1.2.0-preview</DebugPackageVersion>
     <PackageVersionScope>1.*</PackageVersionScope>
   </PropertyGroup>
   
@@ -44,7 +44,6 @@
     <None Include="..\..\LICENSE" Pack="true" PackagePath=""/>
     <None Include="..\..\res\logo\logo.png" Pack="true" PackagePath=""/>
   </ItemGroup>
-
 
   <ItemGroup>
 	  <SourceRoot Include="$(MSBuildThisFileDirectory)/"/>
