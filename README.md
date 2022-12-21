@@ -18,19 +18,19 @@ master | [![master](https://github.com/WizX20/NOW.FeatureFlagExtensions/actions/
 NuGet Packages
 ---------------------------
 
-| Package Name | .NET 7 |
-| ------------ | :-----------: |
+| Package Name | .NET 7 | |
+| ------------ | :-----------: | ----------- | 
 | **Dependency Injection** |
 | *Main* |
-| [FeatureManagement][NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.nuget] | 1.2.0 Preview |
-| [Interceptors][NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.nuget] | 1.2.0 Preview |
+| [FeatureManagement][NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.nuget] | Preview | [<img src="https://flat.badgen.net/nuget/v/NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement" />][NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.nuget] |
+| [Interceptors][NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.nuget] | Preview | [<img src="https://flat.badgen.net/nuget/v/NOW.FeatureFlagExtensions.DependencyInjection.Interceptors" />][NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.nuget] |
 | *Core* |
-| [DependencyInjection][NOW.FeatureFlagExtensions.DependencyInjection.nuget] | 1.2.0 Preview |
-| [Managers][NOW.FeatureFlagExtensions.DependencyInjection.Managers.nuget] | 1.2.0 Preview |
-| [Models][NOW.FeatureFlagExtensions.DependencyInjection.Models.nuget] | 1.2.0 Preview |
+| [DependencyInjection][NOW.FeatureFlagExtensions.DependencyInjection.nuget] | Preview | [<img src="https://flat.badgen.net/nuget/v/NOW.FeatureFlagExtensions.DependencyInjection" />][NOW.FeatureFlagExtensions.DependencyInjection.nuget] |
+| [Managers][NOW.FeatureFlagExtensions.DependencyInjection.Managers.nuget] | Preview | [<img src="https://flat.badgen.net/nuget/v/NOW.FeatureFlagExtensions.DependencyInjection.Managers" />][NOW.FeatureFlagExtensions.DependencyInjection.Managers.nuget] |
+| [Models][NOW.FeatureFlagExtensions.DependencyInjection.Models.nuget] | Preview | [<img src="https://flat.badgen.net/nuget/v/NOW.FeatureFlagExtensions.DependencyInjection.Models" />][NOW.FeatureFlagExtensions.DependencyInjection.Models.nuget] |
 | **Microsoft FeatureManagement** |
-| [FeatureManagement][NOW.FeatureFlagExtensions.FeatureManagement.nuget] | 1.2.0 Preview |
-| [FeatureManagement.Swagger][NOW.FeatureFlagExtensions.FeatureManagement.Swagger.nuget] | 1.2.0 Preview |
+| [FeatureManagement][NOW.FeatureFlagExtensions.FeatureManagement.nuget] | Preview | [<img src="https://flat.badgen.net/nuget/v/NOW.FeatureFlagExtensions.FeatureManagement" />][NOW.FeatureFlagExtensions.FeatureManagement.nuget] |
+| [FeatureManagement.Swagger][NOW.FeatureFlagExtensions.FeatureManagement.Swagger.nuget] | Preview | [<img src="https://flat.badgen.net/nuget/v/NOW.FeatureFlagExtensions.FeatureManagement.Swagger" />][NOW.FeatureFlagExtensions.FeatureManagement.Swagger.nuget] |
 
 
 # Getting started
