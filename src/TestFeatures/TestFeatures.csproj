@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <Import Project="$(CCLibraryProjectProps)" Condition="Exists('$(CCLibraryProjectProps)')" />
 
@@ -8,6 +8,16 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FeatureManagement.FeatureFlagGenerator\NOW.FeatureFlagExtensions.FeatureManagement.FeatureFlagGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <CompilerGeneratedFilesOutputPath>Generated</CompilerGeneratedFilesOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--Exclude the output of source generators from the compilation -->
+    <Compile Remove="$(CompilerGeneratedFilesOutputPath)/**/*.cs" />
   </ItemGroup>
 
 </Project>
