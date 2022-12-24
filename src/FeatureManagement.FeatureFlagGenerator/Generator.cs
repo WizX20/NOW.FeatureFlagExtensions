@@ -15,67 +15,105 @@ namespace NOW.FeatureFlagExtensions.FeatureManagement.FeatureFlagGenerator
 
         public void Execute(GeneratorExecutionContext context)
         {
-            var appsettings = context.AdditionalFiles.Where(at =>
-                at.Path.StartsWith("appsettings.", StringComparison.OrdinalIgnoreCase) &&
-                at.Path.EndsWith(".json", StringComparison.OrdinalIgnoreCase)
-            ).ToList();
-
+            var appsettings = GetAppsettingsFiles(context.AdditionalFiles)?.ToList();
             if (appsettings == null || appsettings.Count < 1)
             {
-                GenerateCSharpFile(context, "// Unable to generate source code: appsettings.json not found.");
+                GenerateCSharpFile(context, "// Unable to generate feature flags: appsettings.json not found.");
                 return;
             }
 
-            var generatedContent = new StringBuilder();
-
-            foreach (var settings in appsettings)
+            try
             {
-                var sourceText = settings.GetText(context.CancellationToken);
-                if (sourceText == null || sourceText.Length < 1)
+                var generatedContent = new StringBuilder();
+
+                foreach (var settings in appsettings)
                 {
-                    continue;
+                    var jsonContent = GetJsonContent(settings, context.CancellationToken);
+                    var generatedSettings = GenerateFromJsonDocument(jsonContent);
+                    if (string.IsNullOrWhiteSpace(generatedSettings))
+                    {
+                        continue;
+                    }
+
+                    generatedContent.Append(generatedSettings);
                 }
 
-                var json = sourceText.ToString();
-                if (json.IndexOf($"\"{FeatureManagementNodeName}\"", StringComparison.OrdinalIgnoreCase) < 1)
-                {
-                    continue;
-                }
-
-                var generatedSettings = GenerateFromJsonDocument(sourceText.ToString());
-                if (string.IsNullOrWhiteSpace(generatedSettings))
-                {
-                    continue;
-                }
-
-                generatedContent.Append(generatedSettings);
+                GenerateCSharpFile(context, generatedContent.ToString());
             }
-
-            GenerateCSharpFile(context, generatedContent.ToString());
+            catch (Exception ex)
+            {
+                Debug.Fail(ex.Message, ex.StackTrace);
+            }
         }
 
         public void Initialize(GeneratorInitializationContext context)
         {
             Debug.WriteLine("Initialize code generator");
+
+            // Enable for debugging on build.
+//#if DEBUG
+//            if (!Debugger.IsAttached)
+//            {
+//                Debugger.Launch();
+//            }
+//#endif
+        }
+
+        private IEnumerable<AdditionalText>? GetAppsettingsFiles(IReadOnlyList<AdditionalText> additionalFiles)
+        {
+            if (additionalFiles == null || additionalFiles.Count < 1)
+            {
+                return Enumerable.Empty<AdditionalText>();
+            }
+
+            return additionalFiles.Where(af => IsValidAppsettingsFile(af));
+        }
+
+        private bool IsValidAppsettingsFile(AdditionalText additionalFile)
+        {
+            var fileName = additionalFile.Path.Split('\\')?.LastOrDefault();
+            if (fileName == null || string.IsNullOrWhiteSpace(fileName))
+            {
+                return false;
+            }
+
+            if (!fileName.StartsWith("appsettings.", StringComparison.OrdinalIgnoreCase))
+            {
+                return false;
+            }
+
+            if (!fileName.EndsWith(".json", StringComparison.OrdinalIgnoreCase))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private string GetJsonContent(AdditionalText appsettings, CancellationToken cancellationToken)
+        {
+            var sourceText = appsettings.GetText(cancellationToken);
+            if (sourceText == null || sourceText.Length < 1)
+            {
+                return string.Empty;
+            }
+
+            var json = sourceText.ToString();
+            if (json.IndexOf($"\"{FeatureManagementNodeName}\"", StringComparison.OrdinalIgnoreCase) < 1)
+            {
+                return string.Empty;
+            }
+
+            return json;
         }
 
         private string GenerateFromJsonDocument(string json)
         {
             var root = JsonConvert.DeserializeObject<dynamic>(json);
-            if (root == null)
-            {
-                return string.Empty;
-            }
-
-            var featureMagementRoot = root.FeatureManagement;
-            if (featureMagementRoot == null)
-            {
-                return string.Empty;
-            }
-
+            var featureManagementRoot = root!.FeatureManagement;
             var featureManagement = new FeatureManagementModel
             {
-                Features = DynamicExtensions.ToDictionary(featureMagementRoot)
+                Features = DynamicExtensions.ToDictionary(featureManagementRoot)
             };
 
             if (featureManagement.Features == null || featureManagement.Features.Count < 1)
@@ -86,7 +124,7 @@ namespace NOW.FeatureFlagExtensions.FeatureManagement.FeatureFlagGenerator
             var generatedContent = new StringBuilder();
             foreach (var feature in featureManagement.Features)
             {
-                generatedContent.AppendLine(string.Format(Constants.FeatureFlagFormat, feature.Key));
+                generatedContent.AppendFormat(Constants.FeatureFlagFormat, feature.Key).AppendLine();
             }
 
             return generatedContent.ToString();

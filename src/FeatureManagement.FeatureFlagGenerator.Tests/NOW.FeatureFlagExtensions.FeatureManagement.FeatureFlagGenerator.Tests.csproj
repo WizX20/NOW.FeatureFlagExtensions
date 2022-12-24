@@ -3,7 +3,7 @@
   <Import Project="$(CCTestProjectProps)" Condition="Exists('$(CCTestProjectProps)')" />
 
   <ItemGroup>
-    <AdditionalFiles Include="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
+    <AdditionalFiles Include="TestConfigurations\AppSettings\appsettings.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>
