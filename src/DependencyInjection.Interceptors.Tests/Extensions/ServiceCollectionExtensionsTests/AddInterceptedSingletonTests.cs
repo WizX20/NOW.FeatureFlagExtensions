@@ -7,7 +7,6 @@ using NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.Extensions;
 using NOW.FeatureFlagExtensions.DependencyInjection.Models;
 using TestFeatureFlagManager;
 using Features = TestFeatures.InterceptorInjection.SingletonFeature;
-using Flags = TestFeatures.FeatureFlags.ReleaseFlags.TestFeatures.InterceptorInjection;
 
 namespace NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.Tests.Extensions.ServiceCollectionExtensionsTests
 {
@@ -74,7 +73,7 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.Tests.Exten
             var implementations = new FeatureFlagWrapper<Features.ITestServiceSingleton>[] {
                 new FeatureFlagWrapper<Features.ITestServiceSingleton>(
                     typeof(Features.TestServiceTwoSingleton),
-                    Flags.TestInterceptedServiceFake // non-existent
+                    "TestInterceptedServiceFake" // non-existent
                 )
             };
 

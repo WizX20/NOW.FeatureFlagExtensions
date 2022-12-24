@@ -38,7 +38,7 @@
 		<ProjectReference Include="..\FeatureManagement\NOW.FeatureFlagExtensions.FeatureManagement.csproj" />
 		<ProjectReference Include="..\TestFeatures\TestFeatures.csproj" />
   </ItemGroup>
-
+  
   <ItemGroup>
 		<None Update="Robots.txt">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

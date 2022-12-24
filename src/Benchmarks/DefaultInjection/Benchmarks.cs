@@ -8,8 +8,8 @@ using NOW.FeatureFlagExtensions.Benchmarks.Common.Extensions;
 using NOW.FeatureFlagExtensions.DependencyInjection.Extensions;
 using NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.Extensions;
 using NOW.FeatureFlagExtensions.DependencyInjection.Models;
-using DefaultInjectionFlags = TestFeatures.FeatureFlags.ReleaseFlags.TestFeatures.DefaultInjection;
 using DefaultInjectionTests = TestFeatures.DefaultInjection;
+using Flags = TestFeatures.FeatureFlagsGenerated.ReleaseFlags;
 
 namespace NOW.FeatureFlagExtensions.Benchmarks.DefaultInjection
 {
@@ -35,25 +35,25 @@ namespace NOW.FeatureFlagExtensions.Benchmarks.DefaultInjection
             services.AddScoped<DefaultInjectionTests.ScopedFeature.ITestServiceScoped, DefaultInjectionTests.ScopedFeature.TestServiceOneScoped>(
                 new FeatureFlagWrapper<DefaultInjectionTests.ScopedFeature.ITestServiceScoped>(
                     typeof(DefaultInjectionTests.ScopedFeature.TestServiceThreeScoped),
-                    DefaultInjectionFlags.TestDefaultServiceScopedThree),
+                    Flags.TestDefaultServiceScopedThree),
                 new FeatureFlagWrapper<DefaultInjectionTests.ScopedFeature.ITestServiceScoped>(
                     typeof(DefaultInjectionTests.ScopedFeature.TestServiceTwoScoped),
-                    DefaultInjectionFlags.TestDefaultServiceScopedTwo),
+                    Flags.TestDefaultServiceScopedTwo),
                 new FeatureFlagWrapper<DefaultInjectionTests.ScopedFeature.ITestServiceScoped>(
                     typeof(DefaultInjectionTests.ScopedFeature.TestServiceOneScoped),
-                    DefaultInjectionFlags.TestDefaultServiceScopedOne)
+                    "TestDefaultServiceScopedOne")
             );
 
             services.AddTransient<DefaultInjectionTests.TransientFeature.ITestServiceTransient, DefaultInjectionTests.TransientFeature.TestServiceOneTransient>(
                 new FeatureFlagWrapper<DefaultInjectionTests.TransientFeature.ITestServiceTransient>(
                     typeof(DefaultInjectionTests.TransientFeature.TestServiceThreeTransient),
-                    DefaultInjectionFlags.TestDefaultServiceTransientThree),
+                    Flags.TestDefaultServiceTransientThree),
                 new FeatureFlagWrapper<DefaultInjectionTests.TransientFeature.ITestServiceTransient>(
                     typeof(DefaultInjectionTests.TransientFeature.TestServiceTwoTransient),
-                    DefaultInjectionFlags.TestDefaultServiceTransientTwo),
+                    Flags.TestDefaultServiceTransientTwo),
                 new FeatureFlagWrapper<DefaultInjectionTests.TransientFeature.ITestServiceTransient>(
                     typeof(DefaultInjectionTests.TransientFeature.TestServiceOneTransient),
-                    DefaultInjectionFlags.TestDefaultServiceTransientOne)
+                    "TestDefaultServiceTransientOne")
             );
 
             _serviceProvider = services.BuildServiceProvider();

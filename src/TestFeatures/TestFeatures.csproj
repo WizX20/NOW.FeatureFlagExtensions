@@ -2,4 +2,12 @@
 
   <Import Project="$(CCLibraryProjectProps)" Condition="Exists('$(CCLibraryProjectProps)')" />
 
+  <ItemGroup>
+    <AdditionalFiles Include="..\FeatureTestApplication\appsettings.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FeatureManagement.FeatureFlagGenerator\NOW.FeatureFlagExtensions.FeatureManagement.FeatureFlagGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+
 </Project>

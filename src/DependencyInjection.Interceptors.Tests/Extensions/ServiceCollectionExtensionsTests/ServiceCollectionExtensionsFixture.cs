@@ -4,7 +4,7 @@ using NOW.FeatureFlagExtensions.DependencyInjection.Managers.Extensions;
 using NOW.FeatureFlagExtensions.DependencyInjection.Models;
 using TestFeatureFlagManager;
 using Features = TestFeatures.InterceptorInjection;
-using Flags = TestFeatures.FeatureFlags.ReleaseFlags.TestFeatures.InterceptorInjection;
+using Flags = TestFeatures.FeatureFlagsGenerated.ReleaseFlags;
 
 namespace NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.Tests.Extensions.ServiceCollectionExtensionsTests
 {

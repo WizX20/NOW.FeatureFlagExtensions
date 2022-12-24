@@ -7,7 +7,6 @@ using NOW.FeatureFlagExtensions.DependencyInjection.Extensions;
 using NOW.FeatureFlagExtensions.DependencyInjection.Models;
 using TestFeatureFlagManager;
 using Features = TestFeatures.DefaultInjection.ScopedFeature;
-using Flags = TestFeatures.FeatureFlags.ReleaseFlags.TestFeatures.DefaultInjection;
 
 namespace NOW.FeatureFlagExtensions.DependencyInjection.Tests.Extensions.ServiceCollectionExtensionsTests
 {
@@ -74,7 +73,7 @@ namespace NOW.FeatureFlagExtensions.DependencyInjection.Tests.Extensions.Service
             var implementations = new FeatureFlagWrapper<Features.ITestServiceScoped>[] {
                 new FeatureFlagWrapper<Features.ITestServiceScoped>(
                     typeof(Features.TestServiceTwoScoped),
-                    Flags.TestDefaultServiceFake // non-existent
+                    "TestDefaultServiceFake" // non-existent
                 )
             };
 

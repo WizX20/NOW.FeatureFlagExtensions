@@ -7,8 +7,8 @@ using Microsoft.FeatureManagement;
 using NOW.FeatureFlagExtensions.Benchmarks.Common.Extensions;
 using NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.Extensions;
 using NOW.FeatureFlagExtensions.DependencyInjection.Managers;
-using DefaultInjectionFlags = TestFeatures.FeatureFlags.ReleaseFlags.TestFeatures.DefaultInjection;
 using DefaultInjectionTests = TestFeatures.DefaultInjection;
+using Flags = TestFeatures.FeatureFlagsGenerated.ReleaseFlags;
 
 namespace NOW.FeatureFlagExtensions.Benchmarks.VanillaInjection
 {
@@ -56,17 +56,17 @@ namespace NOW.FeatureFlagExtensions.Benchmarks.VanillaInjection
         {
             var resolvedService = _serviceProvider.GetService<DefaultInjectionTests.ScopedFeature.ITestServiceScoped>();
 
-            if (_featureFlagManager.IsEnabled(DefaultInjectionFlags.TestDefaultServiceScopedThree))
+            if (_featureFlagManager.IsEnabled(Flags.TestDefaultServiceScopedThree))
             {
                 resolvedService = _serviceProvider.GetService<DefaultInjectionTests.ScopedFeature.TestServiceThreeScoped>();
             }
 
-            if (_featureFlagManager.IsEnabled(DefaultInjectionFlags.TestDefaultServiceScopedTwo))
+            if (_featureFlagManager.IsEnabled(Flags.TestDefaultServiceScopedTwo))
             {
                 resolvedService = _serviceProvider.GetService<DefaultInjectionTests.ScopedFeature.TestServiceTwoScoped>();
             }
 
-            if (_featureFlagManager.IsEnabled(DefaultInjectionFlags.TestDefaultServiceScopedOne))
+            if (_featureFlagManager.IsEnabled("TestDefaultServiceScopedOne"))
             {
                 resolvedService = _serviceProvider.GetService<DefaultInjectionTests.ScopedFeature.TestServiceOneScoped>();
             }
@@ -82,17 +82,17 @@ namespace NOW.FeatureFlagExtensions.Benchmarks.VanillaInjection
         {
             var resolvedService = _serviceProvider.GetService<DefaultInjectionTests.SingletonFeature.ITestServiceSingleton>();
 
-            if (_featureFlagManager.IsEnabled(DefaultInjectionFlags.TestDefaultServiceSingletonThree))
+            if (_featureFlagManager.IsEnabled(Flags.TestDefaultServiceSingletonThree))
             {
                 resolvedService = _serviceProvider.GetService<DefaultInjectionTests.SingletonFeature.TestServiceThreeSingleton>();
             }
 
-            if (_featureFlagManager.IsEnabled(DefaultInjectionFlags.TestDefaultServiceSingletonTwo))
+            if (_featureFlagManager.IsEnabled(Flags.TestDefaultServiceSingletonTwo))
             {
                 resolvedService = _serviceProvider.GetService<DefaultInjectionTests.SingletonFeature.TestServiceTwoSingleton>();
             }
 
-            if (_featureFlagManager.IsEnabled(DefaultInjectionFlags.TestDefaultServiceSingletonOne))
+            if (_featureFlagManager.IsEnabled("TestDefaultServiceSingletonOne"))
             {
                 resolvedService = _serviceProvider.GetService<DefaultInjectionTests.SingletonFeature.TestServiceOneSingleton>();
             }
@@ -108,17 +108,17 @@ namespace NOW.FeatureFlagExtensions.Benchmarks.VanillaInjection
         {
             var resolvedService = _serviceProvider.GetService<DefaultInjectionTests.TransientFeature.ITestServiceTransient>();
 
-            if (_featureFlagManager.IsEnabled(DefaultInjectionFlags.TestDefaultServiceTransientThree))
+            if (_featureFlagManager.IsEnabled(Flags.TestDefaultServiceTransientThree))
             {
                 resolvedService = _serviceProvider.GetService<DefaultInjectionTests.TransientFeature.TestServiceThreeTransient>();
             }
 
-            if (_featureFlagManager.IsEnabled(DefaultInjectionFlags.TestDefaultServiceTransientTwo))
+            if (_featureFlagManager.IsEnabled(Flags.TestDefaultServiceTransientTwo))
             {
                 resolvedService = _serviceProvider.GetService<DefaultInjectionTests.TransientFeature.TestServiceTwoTransient>();
             }
 
-            if (_featureFlagManager.IsEnabled(DefaultInjectionFlags.TestDefaultServiceTransientOne))
+            if (_featureFlagManager.IsEnabled("TestDefaultServiceTransientOne"))
             {
                 resolvedService = _serviceProvider.GetService<DefaultInjectionTests.TransientFeature.TestServiceOneTransient>();
             }

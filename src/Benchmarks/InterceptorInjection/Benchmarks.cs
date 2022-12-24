@@ -8,7 +8,7 @@ using NOW.FeatureFlagExtensions.Benchmarks.Common.Extensions;
 using NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.Extensions;
 using NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.Extensions;
 using NOW.FeatureFlagExtensions.DependencyInjection.Models;
-using InterceptorInjectionFlags = TestFeatures.FeatureFlags.ReleaseFlags.TestFeatures.InterceptorInjection;
+using Flags = TestFeatures.FeatureFlagsGenerated.ReleaseFlags;
 using InterceptorInjectionTests = TestFeatures.InterceptorInjection;
 
 namespace NOW.FeatureFlagExtensions.Benchmarks.InterceptorInjection
@@ -35,37 +35,37 @@ namespace NOW.FeatureFlagExtensions.Benchmarks.InterceptorInjection
             services.AddInterceptedScoped<InterceptorInjectionTests.ScopedFeature.ITestServiceScoped, InterceptorInjectionTests.ScopedFeature.TestServiceOneScoped>(
                 new FeatureFlagWrapper<InterceptorInjectionTests.ScopedFeature.ITestServiceScoped>(
                     typeof(InterceptorInjectionTests.ScopedFeature.TestServiceThreeScoped),
-                    InterceptorInjectionFlags.TestInterceptedServiceScopedThree),
+                    Flags.TestInterceptedServiceScopedThree),
                 new FeatureFlagWrapper<InterceptorInjectionTests.ScopedFeature.ITestServiceScoped>(
                     typeof(InterceptorInjectionTests.ScopedFeature.TestServiceTwoScoped),
-                    InterceptorInjectionFlags.TestInterceptedServiceScopedTwo),
+                    Flags.TestInterceptedServiceScopedTwo),
                 new FeatureFlagWrapper<InterceptorInjectionTests.ScopedFeature.ITestServiceScoped>(
                     typeof(InterceptorInjectionTests.ScopedFeature.TestServiceOneScoped),
-                    InterceptorInjectionFlags.TestInterceptedServiceScopedOne)
+                    "TestInterceptedServiceScopedOne")
             );
 
             services.AddInterceptedSingleton<InterceptorInjectionTests.SingletonFeature.ITestServiceSingleton, InterceptorInjectionTests.SingletonFeature.TestServiceOneSingleton>(
                 new FeatureFlagWrapper<InterceptorInjectionTests.SingletonFeature.ITestServiceSingleton>(
                     typeof(InterceptorInjectionTests.SingletonFeature.TestServiceThreeSingleton),
-                    InterceptorInjectionFlags.TestInterceptedServiceSingletonThree),
+                    Flags.TestInterceptedServiceSingletonThree),
                 new FeatureFlagWrapper<InterceptorInjectionTests.SingletonFeature.ITestServiceSingleton>(
                     typeof(InterceptorInjectionTests.SingletonFeature.TestServiceTwoSingleton),
-                    InterceptorInjectionFlags.TestInterceptedServiceSingletonTwo),
+                    Flags.TestInterceptedServiceSingletonTwo),
                 new FeatureFlagWrapper<InterceptorInjectionTests.SingletonFeature.ITestServiceSingleton>(
                     typeof(InterceptorInjectionTests.SingletonFeature.TestServiceOneSingleton),
-                    InterceptorInjectionFlags.TestInterceptedServiceSingletonOne)
+                    "TestInterceptedServiceSingletonOne")
             );
 
             services.AddInterceptedTransient<InterceptorInjectionTests.TransientFeature.ITestServiceTransient, InterceptorInjectionTests.TransientFeature.TestServiceOneTransient>(
                 new FeatureFlagWrapper<InterceptorInjectionTests.TransientFeature.ITestServiceTransient>(
                     typeof(InterceptorInjectionTests.TransientFeature.TestServiceThreeTransient),
-                    InterceptorInjectionFlags.TestInterceptedServiceTransientThree),
+                    Flags.TestInterceptedServiceTransientThree),
                 new FeatureFlagWrapper<InterceptorInjectionTests.TransientFeature.ITestServiceTransient>(
                     typeof(InterceptorInjectionTests.TransientFeature.TestServiceTwoTransient),
-                    InterceptorInjectionFlags.TestInterceptedServiceTransientTwo),
+                    Flags.TestInterceptedServiceTransientTwo),
                 new FeatureFlagWrapper<InterceptorInjectionTests.TransientFeature.ITestServiceTransient>(
                     typeof(InterceptorInjectionTests.TransientFeature.TestServiceOneTransient),
-                    InterceptorInjectionFlags.TestInterceptedServiceTransientOne)
+                    "TestInterceptedServiceTransientOne")
             );
 
             _serviceProvider = services.BuildServiceProvider();
