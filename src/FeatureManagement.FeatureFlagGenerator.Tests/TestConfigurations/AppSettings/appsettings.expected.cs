@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NOW.FeatureFlagExtensions.FeatureManagement.FeatureFlagGenerator.Tests.TestConfigurations.AppSettings
 {
-    public static class Expected
+    public static partial class Expected
     {
         public const string GeneratedCode = @"
 //------------------------------------------------------------------------------
@@ -24,12 +24,12 @@ namespace TestFeatures
     /// <summary>
     /// Available feature flags/toggles, https://www.martinfowler.com/articles/feature-toggles.html
     /// </summary>
-    public static class FeatureFlagsGenerated
+    public static partial class FeatureFlagsGenerated
     {
         /// <summary>
         /// Experiment Toggles are used to perform multivariate or A/B testing.
         /// </summary>
-        public static class ExperimentFlags
+        public static partial class ExperimentFlags
         {
 /*__ExperimentFlags__*/
         }
@@ -37,7 +37,7 @@ namespace TestFeatures
         /// <summary>
         /// Ops Toggles are used to control operational aspects of our system's behavior.
         /// </summary>
-        public static class OpsFlags
+        public static partial class OpsFlags
         {
 /*__OpsFlags__*/
         }
@@ -46,7 +46,7 @@ namespace TestFeatures
         /// Permission Toggles are used to change the features or product experience that
         /// certain users receive.
         /// </summary>
-        public static class PermissionFlags
+        public static partial class PermissionFlags
         {
 /*__PermissionFlags__*/
         }
@@ -55,7 +55,7 @@ namespace TestFeatures
         /// Release Toggles allow incomplete and untested code-paths to be shipped to production,
         /// as latent code which may never be turned on.
         /// </summary>
-        public static class ReleaseFlags
+        public static partial class ReleaseFlags
         {
             public const string TestFeatureOne = nameof(TestFeatureOne);
             public const string TestFeatureTwo = nameof(TestFeatureTwo);
