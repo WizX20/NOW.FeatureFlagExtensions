@@ -18,19 +18,19 @@ master | [![master](https://github.com/WizX20/NOW.FeatureFlagExtensions/actions/
 NuGet Packages
 ---------------------------
 
-| Package Name | .NET 7 |
-| ------------ | :-----------: |
+| Package Name | .NET 7 | |
+| ------------ | :-----------: | ----------- | 
 | **Dependency Injection** |
 | *Main* |
-| [FeatureManagement][NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.nuget] | 1.2.0 Preview |
-| [Interceptors][NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.nuget] | 1.2.0 Preview |
+| [FeatureManagement][NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.nuget] | Preview | [<img src="https://flat.badgen.net/nuget/v/NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement" />][NOW.FeatureFlagExtensions.DependencyInjection.FeatureManagement.nuget] |
+| [Interceptors][NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.nuget] | Preview | [<img src="https://flat.badgen.net/nuget/v/NOW.FeatureFlagExtensions.DependencyInjection.Interceptors" />][NOW.FeatureFlagExtensions.DependencyInjection.Interceptors.nuget] |
 | *Core* |
-| [DependencyInjection][NOW.FeatureFlagExtensions.DependencyInjection.nuget] | 1.2.0 Preview |
-| [Managers][NOW.FeatureFlagExtensions.DependencyInjection.Managers.nuget] | 1.2.0 Preview |
-| [Models][NOW.FeatureFlagExtensions.DependencyInjection.Models.nuget] | 1.2.0 Preview |
+| [DependencyInjection][NOW.FeatureFlagExtensions.DependencyInjection.nuget] | Preview | [<img src="https://flat.badgen.net/nuget/v/NOW.FeatureFlagExtensions.DependencyInjection" />][NOW.FeatureFlagExtensions.DependencyInjection.nuget] |
+| [Managers][NOW.FeatureFlagExtensions.DependencyInjection.Managers.nuget] | Preview | [<img src="https://flat.badgen.net/nuget/v/NOW.FeatureFlagExtensions.DependencyInjection.Managers" />][NOW.FeatureFlagExtensions.DependencyInjection.Managers.nuget] |
+| [Models][NOW.FeatureFlagExtensions.DependencyInjection.Models.nuget] | Preview | [<img src="https://flat.badgen.net/nuget/v/NOW.FeatureFlagExtensions.DependencyInjection.Models" />][NOW.FeatureFlagExtensions.DependencyInjection.Models.nuget] |
 | **Microsoft FeatureManagement** |
-| [FeatureManagement][NOW.FeatureFlagExtensions.FeatureManagement.nuget] | 1.2.0 Preview |
-| [FeatureManagement.Swagger][NOW.FeatureFlagExtensions.FeatureManagement.Swagger.nuget] | 1.2.0 Preview |
+| [FeatureManagement][NOW.FeatureFlagExtensions.FeatureManagement.nuget] | Preview | [<img src="https://flat.badgen.net/nuget/v/NOW.FeatureFlagExtensions.FeatureManagement" />][NOW.FeatureFlagExtensions.FeatureManagement.nuget] |
+| [FeatureManagement.Swagger][NOW.FeatureFlagExtensions.FeatureManagement.Swagger.nuget] | Preview | [<img src="https://flat.badgen.net/nuget/v/NOW.FeatureFlagExtensions.FeatureManagement.Swagger" />][NOW.FeatureFlagExtensions.FeatureManagement.Swagger.nuget] |
 
 
 # Getting started
@@ -66,6 +66,8 @@ A set of packages to enable "hot-reload" feature switching via Dependency Inject
         Contains the models used by the core libraries. [read more...](#todo)
 
 ### Benchmarks
+
+*Executed using v1.1.0-preview (.net 6).*
 
 *Vanilla Feature Flag Usage*
 https://github.com/WizX20/NOW.FeatureFlagExtensions/blob/2ac0c7d188aa6f93ff0b93c7d3092e6debcf2dd8/src/Benchmarks/VanillaInjection/BenchmarkDotNet.Artifacts/results/NOW.FeatureFlagExtensions.Benchmarks.VanillaInjection.Benchmarks-report-github.md?plain=1#L11-L15
