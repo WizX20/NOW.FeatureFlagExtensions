@@ -17,7 +17,7 @@ namespace NOW.FeatureFlagExtensions.FeatureManagement.FeatureFlagGenerator.Tests
         {
             // Arrange
             var generated = Expected.GeneratedCode;
-            var appsettingsContent = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "TestConfigurations\\AppSettings\\" + _appsettings_json_filename);
+            var appsettingsContent = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "TestConfigurations/AppSettings/" + _appsettings_json_filename);
 
             // Act
             var verifier = new GeneratedCodeVerifier.Test
