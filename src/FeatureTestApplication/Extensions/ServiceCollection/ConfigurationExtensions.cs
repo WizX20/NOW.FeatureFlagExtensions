@@ -1,5 +1,4 @@
 ﻿using FeatureTestApplication.Configuration;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace FeatureTestApplication.Extensions.ServiceCollection
 {
