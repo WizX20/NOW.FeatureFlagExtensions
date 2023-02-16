@@ -10,9 +10,9 @@
       },
       "FluentAssertions": {
         "type": "Direct",
-        "requested": "[6.8.0, )",
-        "resolved": "6.8.0",
-        "contentHash": "NfSlAG97wMxS48Ov+wQEhJITdn4bKrgtKrG4sCPrFBVKozpC57lQ2vzsPdxUOsPbfEgEQTMtvCDECxIlDBfgNA==",
+        "requested": "[6.10.0, )",
+        "resolved": "6.10.0",
+        "contentHash": "Da3YsiRDnOHKBfxutjnupL1rOX0K/jnG6crn5AgwukeqZ/yi+HNCOFshic01ke0ztZFWzpfQMXH8fO9aAbG0Gw==",
         "dependencies": {
           "System.Configuration.ConfigurationManager": "4.4.0"
         }
@@ -54,24 +54,24 @@
       },
       "Moq": {
         "type": "Direct",
-        "requested": "[4.18.3, )",
-        "resolved": "4.18.3",
-        "contentHash": "nmV2lludVOFmVi+Vtq9twX1/SDiEVyYDURzxW39gUBqjyoXmdyNwJSeOfSCJoJTXDXBVfFNfEljB5UWGj/cKnQ==",
+        "requested": "[4.18.4, )",
+        "resolved": "4.18.4",
+        "contentHash": "IOo+W51+7Afnb0noltJrKxPBSfsgMzTKCw+Re5AMx8l/vBbAbMDOynLik4+lBYIWDJSO0uV7Zdqt7cNb6RZZ+A==",
         "dependencies": {
-          "Castle.Core": "5.1.0"
+          "Castle.Core": "5.1.1"
         }
       },
       "MSTest.TestAdapter": {
         "type": "Direct",
-        "requested": "[3.0.1, )",
-        "resolved": "3.0.1",
-        "contentHash": "QcGOttirgLRLyWqWyn/kZElUQrDu5aOXLxiVrchithODwUk4hpXubvGKf6I7uW9LurhBYuiHvnMU2Fu4qY9Rjg=="
+        "requested": "[3.0.2, )",
+        "resolved": "3.0.2",
+        "contentHash": "K1hhtevCzbogylmAnCluV/M1/Ajr5EKfxWq3nv+iYxt+gHLN4gSqT6B3tPnNqUbE4aWT1aUHagcRMnARt45NzQ=="
       },
       "MSTest.TestFramework": {
         "type": "Direct",
-        "requested": "[3.0.1, )",
-        "resolved": "3.0.1",
-        "contentHash": "S8ErX2PC/+pRMEb9tcRAPMYAi7EhwTGKoU1QAZWiFOeDw4/e8pUdQ3cLM4/s8LboAKNpJysmhq578Jxvuly4RA=="
+        "requested": "[3.0.2, )",
+        "resolved": "3.0.2",
+        "contentHash": "cuCE5PXK0mX0FIfY3yzDNKFqCf2FTxZhdH/Bxg4662MAWZg4TnG3rYsFzNpPECrvn8Ry6lG8TaT2Ltg1NZkC6Q=="
       },
       "Roslynator.Analyzers": {
         "type": "Direct",
@@ -81,8 +81,8 @@
       },
       "Castle.Core": {
         "type": "Transitive",
-        "resolved": "5.1.0",
-        "contentHash": "31UJpTHOiWq95CDOHazE3Ub/hE/PydNWsJMwnEVTqFFP4WhAugwpaVGxzOxKgNeSUUeqS2W6lxV+q7u1pAOfXg==",
+        "resolved": "5.1.1",
+        "contentHash": "rpYtIczkzGpf+EkZgDr9CClTdemhsrwA/W5hMoPjLkRFnXzH44zDLoovXeKtmxb1ykXK9aJVODSpiJml8CTw2g==",
         "dependencies": {
           "System.Diagnostics.EventLog": "6.0.0"
         }
@@ -162,8 +162,8 @@
         "type": "Project",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "[7.0.0, )",
-          "NOW.FeatureFlagExtensions.DependencyInjection.Managers": "[1.2.0-preview, )",
-          "NOW.FeatureFlagExtensions.DependencyInjection.Models": "[1.2.0-preview, )"
+          "NOW.FeatureFlagExtensions.DependencyInjection.Managers": "[1.2.1-preview, )",
+          "NOW.FeatureFlagExtensions.DependencyInjection.Models": "[1.2.1-preview, )"
         }
       },
       "now.featureflagextensions.dependencyinjection.managers": {
@@ -181,7 +181,7 @@
       "testfeatureflagmanager": {
         "type": "Project",
         "dependencies": {
-          "NOW.FeatureFlagExtensions.DependencyInjection.Managers": "[1.2.0-preview, )"
+          "NOW.FeatureFlagExtensions.DependencyInjection.Managers": "[1.2.1-preview, )"
         }
       },
       "testfeatures": {

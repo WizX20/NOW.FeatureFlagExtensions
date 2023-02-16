@@ -16,7 +16,7 @@
   </ItemGroup>
     
   <ItemGroup>
-    <PackageReference Include="Castle.Core" Version="5.1.0" />
+    <PackageReference Include="Castle.Core" Version="5.1.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
     <PackageReference Include="NOW.FeatureFlagExtensions.DependencyInjection.Managers" Version="$(PackageVersionScope)" NoWarn="NU1603" />
     <PackageReference Include="NOW.FeatureFlagExtensions.DependencyInjection.Models" Version="$(PackageVersionScope)" NoWarn="NU1603" />
