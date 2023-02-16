@@ -23,10 +23,12 @@ namespace FeatureTestApplication.Extensions.ServiceCollection
                 throw new ArgumentNullException(nameof(configuration));
             }
 
+            services.AddOptions<AppSettingsConfiguration>()
+                .Bind(configuration)
+                .ValidateOnStart();
+
             var appSettings = new AppSettingsConfiguration();
             configuration.Bind(appSettings);
-
-            services.TryAddSingleton(appSettings);
 
             return appSettings;
         }
